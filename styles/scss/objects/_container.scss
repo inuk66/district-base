@@ -1,0 +1,28 @@
+// Extend default containers. Usage eg: @extend %container--large;
+// This ensures a gutter is present on smaller screens.
+.container,
+%container {
+  @each $name, $size in $duk-base-containers {
+    &--#{$name} {
+      @extend %duk-container--#{$name};
+      width: 90%;
+
+      @include duk-at-breakpoint('phablet') {
+        width: 96%;
+      }
+
+      @include duk-at-breakpoint('no-horizontal-gutter') {
+        width: auto;
+      }
+    }
+  }
+
+  // Full width only restricts max width.
+  &--full-width {
+    @each $name, $size in $duk-base-containers {
+      &--#{$name} {
+        @extend %duk-container--#{$name};
+      }
+    }
+  }
+}

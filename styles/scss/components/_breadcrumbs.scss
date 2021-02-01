@@ -1,0 +1,46 @@
+// Breadcrumbs.
+//
+// Breadcrumb navigation styles
+//
+// Style guide: Components.breadcrumbs
+//
+// Markup:
+//  <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+//    <ol>
+//      <li>
+//        <a href="/">Home</a>
+//      </li>
+//      <li>
+//        <a href="/news-events">News and Events</a>
+//      </li>
+//      <li>
+//        <a href="/news-events/events">Events</a>
+//      </li>
+//    </ol>
+//  </nav>
+.breadcrumb > ol > li + li:before {
+  @include duk-font-color('breadcrumb');
+  padding: 0 $duk-half-spacing-unit;
+  content: "/";
+  font-size: 80%;
+}
+
+.breadcrumb > ol > li {
+
+  a {
+    @include duk-font-color('breadcrumb-last');
+  }
+
+  &:not(:last-child) a {
+    @include duk-font-color('breadcrumb');
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &:first-child a {
+    @include duk-font-color('breadcrumb');
+  }
+
+}

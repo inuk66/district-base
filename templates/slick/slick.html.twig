@@ -1,0 +1,12 @@
+{#
+  For more flexibility around styling the navigation buttons, we need to extend
+  this template from the slick module.
+#}
+{% extends '/modules/contrib/slick/templates/slick.html.twig' %}
+
+{% block slick_arrow %}
+  <div{{ arrow_attributes.addClass(arrow_classes) }}>
+    {% set arrow_attributes = [] %}
+    {{ parent() }}
+  </div>
+{% endblock %}

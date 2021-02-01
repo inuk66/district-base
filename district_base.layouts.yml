@@ -1,0 +1,157 @@
+# Layouts
+
+district_teaser_stacked:
+  label: Teaser stacked
+  category: district_base
+  template: layouts/teaser_stacked
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  icon_map:
+    - [main]
+  regions:
+    prefix:
+      label: Prefix
+    image:
+      label: Image
+    title:
+      label: Title
+    main:
+      label: Main content
+    suffix:
+      label: Suffix
+    tag:
+      label: Tag
+
+district_teaser_horizontal:
+  label: Teaser horizontal
+  category: district_base
+  template: layouts/teaser_horizontal
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  regions:
+    image:
+      label: Image
+    title:
+      label: Title
+    main:
+      label: Main content
+    tag:
+      label: Tag
+
+district_teaser_mini:
+  label: Teaser mini
+  category: district_base
+  template: layouts/teaser_mini
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  regions:
+    image:
+      label: Image
+    main:
+      label: Main content
+
+district_teaser_map_popup:
+  label: Teaser map popup
+  category: district_base
+  template: layouts/teaser_map_popup
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  regions:
+    image:
+      label: Image
+    main:
+      label: Main content
+
+district_teaser_large_location:
+  label: Teaser large location
+  category: district_base
+  template: layouts/teaser_large_location
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: meta
+  regions:
+    image:
+      label: Image
+    title:
+      label: Title
+    meta:
+      label: Meta
+    map:
+      label: Map
+
+district_link_cta:
+  label: Link CTA
+  category: district_base
+  template: layouts/link_cta
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: description
+  regions:
+    title:
+      label: Title
+    description:
+      label: Description
+    link:
+      label: Link
+
+district_search_result:
+  label: Search result
+  category: district_base
+  template: layouts/search_result
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: description
+  regions:
+    title:
+      label: Title
+    description:
+      label: Description
+    meta:
+      label: Meta
+
+district_flag:
+  label: Flag
+  category: district_base
+  template: layouts/layout_flag
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  regions:
+    main:
+      label: Content
+    image:
+      label: Image
+
+district_text_on_image:
+  label: Text on image
+  category: district_base
+  template: layouts/text_on_image
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  regions:
+    main:
+      label: Content
+    image:
+      label: Image
+
+district_featured_links:
+  label: Featured links
+  category: district_base
+  template: layouts/featured_links
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  regions:
+    main:
+      label: Content
+    links:
+      label: Links
+    image:
+      label: Image
+
+district_sidebar_right:
+  label: Sidebar right
+  category: district_base
+  template: layouts/sidebar_right
+  class: '\Drupal\ds\Plugin\DsLayout'
+  default_region: main
+  regions:
+    main:
+      label: Content
+    sidebar:
+      label: Sidebar

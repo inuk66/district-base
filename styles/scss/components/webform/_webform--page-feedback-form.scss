@@ -1,0 +1,60 @@
+
+.page-feedback-form {
+  max-width: 500px;
+
+  @include duk-at-breakpoint('phablet') {
+    min-width: 500px;
+  }
+
+  .form-required:after {
+    display: none;
+  }
+
+  .webform-submission-form {
+    padding-bottom: 0;
+
+    .form-item label {
+      @include duk-font-weight('regular');
+    }
+
+    .form-actions {
+      text-align: left;
+      margin-bottom: $duk-triple-spacing-unit;
+    }
+
+    .page-helpful-wrapper {
+      margin: 0 0 $duk-one-n-half-spacing-unit;
+
+      @include duk-at-breakpoint('tablet') {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 0;
+      }
+
+      > label {
+        margin-right: $duk-base-spacing-unit;
+      }
+
+      .form-radios {
+        label {
+          @extend %button--primary;
+        }
+
+        .form-item {
+          display: inline-block;
+        }
+
+        input {
+          display: none;
+
+          &:checked+label {
+            @extend %button--secondary;
+          }
+        }
+      }
+    }
+  }
+}
+
+

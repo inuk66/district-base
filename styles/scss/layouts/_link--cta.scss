@@ -1,0 +1,40 @@
+// Link CTA
+//
+// Defines a link CTA
+//
+// Style guide: Layouts.link-cta
+//
+// Markup:
+//  <div class="link--cta" style="max-width: 400px">
+//    <div class="link__title"><strong>Link title</strong><span><i></i></span> </div>
+//    <div class="link__descrtiption">Aenean ex felis, convallis ac nunc eu, cursus luctus augue etiam dictum nulla</div>
+//    <div class="link__link"><a href="https://google.com">External link</a></div>
+//  </div>
+
+.link--cta {
+  @extend %link--cta;
+
+  &:hover {
+    .link__title span {
+      @extend %link--cta__icon--hover;
+    }
+  }
+
+  .link {
+    &__title {
+      @extend %link--cta__title;
+
+      span {
+        @extend %link--cta__icon;
+      }
+    }
+
+    // Link overlays over entire CTA.
+    &__link {
+      a {
+        @include duk-position-absolute(top 0 right 0 left 0 bottom 0);
+        text-indent: -9999999px;
+      }
+    }
+  }
+}

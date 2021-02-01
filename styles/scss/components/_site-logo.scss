@@ -1,0 +1,15 @@
+.site-logo {
+  &.site-logo--mobile {
+    @include duk-at-breakpoint('desktop-menu') {
+      display: none;
+    }
+  }
+
+  &.site-logo--desktop {
+    display: none;
+
+    @include duk-at-breakpoint('desktop-menu') {
+      display: block;
+    }
+  }
+}

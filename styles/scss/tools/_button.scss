@@ -1,0 +1,140 @@
+// Mixins
+//
+// Style guide: Buttons.2-mixins
+
+// button
+//
+// Applies a variant and icon to a button.
+//
+// ``` scss
+// @include button($variant, $icon);
+// ```
+//
+// $variant - The variant name for the button.
+// $icon - The icon name
+//
+// Style guide: Buttons.2-mixins.button
+
+@mixin button($variant, $icon: 'arrow-default-right') {
+  @include duk-button;
+  color: map-get($duk-button-colors, #{$variant}-text);
+  background-color: map-get($duk-button-colors, #{$variant});
+
+  // If border color defined, use that, otherwise use default bg.
+  @if (map-has-key($duk-button-colors, #{$variant}-border)) {
+    border-color: map-get($duk-button-colors, #{$variant}-border);
+  } @else {
+    border-color: map-get($duk-button-colors, #{$variant});
+  }
+
+  // Icon style.
+  @if ($icon) {
+    @include duk-icon($icon, $duk-icon-default-set, after);
+    position: relative;
+    transition: padding 100ms ease;
+
+    &:after {
+      @include duk-position-absolute(top 50% right 2em);
+      color: map-get($duk-button-colors, #{$variant}-icon);
+      padding-left: $duk-half-spacing-unit;
+      font-size: map-get($duk-base-button-settings, 'icon-size');
+      vertical-align: middle;
+      transform: translateY(-50%);
+      transition: opacity 100ms ease;
+      opacity: 0;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    // If hover values are provided, they will be used, if not will
+    // use the default values for each property.
+    @if (map-has-key($duk-button-colors, #{$variant}-hover)) {
+      background: map-get($duk-button-colors, #{$variant}-hover);
+    } @else {
+      background: map-get($duk-button-colors, $variant);
+    }
+    @if (map-has-key($duk-button-colors, #{$variant}-text-hover)) {
+      color: map-get($duk-button-colors, #{$variant}-text-hover);
+    } @else {
+      color: map-get($duk-button-colors, #{$variant}-text);
+    }
+    @if (map-has-key($duk-button-colors, #{$variant}-border-hover)) {
+      border-color: map-get($duk-button-colors, #{$variant}-border-hover);
+    } @elseif (map-has-key($duk-button-colors, #{$variant}-border)) {
+      border-color: map-get($duk-button-colors, #{$variant}-border);
+    } @else {
+      border-color: map-get($duk-button-colors, #{$variant});
+    }
+
+    // If icon, will display on hover.
+    @if ($icon) {
+      &:not(input) {
+        $padding-right: nth(map-get($duk-base-button-settings, padding), 2);
+        padding-right: ($padding-right * 2) + .5em;
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// button-icon-small
+//
+// Create a small button icon.
+//
+// ``` scss
+// @include button-icon-small($icon, $palette-bg, $palette-text, $size);
+// ```
+//
+// $icon - Icon to use
+// $palette-bg - Background color
+// $palette-text - Icon color
+// $palette-size - Button size.
+//
+// Style guide: Buttons.2-mixins.button-icon-small
+@mixin button-icon-small($icon: 'arrow-default-right', $palette-bg: 'secondary', $palette-text: 'primary', $size: 1.5rem) {
+  @include duk-icon($icon);
+
+  &:before {
+    background-color: duk-get-palette-color($palette-bg);
+    color: duk-get-palette-color($palette-text);
+    font-size: ($size / 3);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    line-height: $size;
+    width: $size;
+    height: $size;
+    border-radius: 3px;
+    margin-right: .75rem;
+  }
+
+  &:hover:before {
+    background-color: duk-get-palette-color($palette-text);
+    color: duk-get-palette-color($palette-bg);
+  }
+}
+
+// button-hover-reset
+//
+// Remove the default hover/focus animation/icon.
+//
+// ``` scss
+// @include button-hover-reset();
+// ```
+//
+// Style guide: Buttons.2-mixins.button-hover-reset
+@mixin button-hover-reset($variant: 'primary') {
+  &:hover,
+  &:focus {
+    padding-right: 1em !important;
+    background-color: darken(map-get($duk-button-colors, 'tertiary'), 10%);
+
+    &:after {
+      display: none;
+    }
+  }
+}

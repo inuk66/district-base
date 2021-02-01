@@ -1,0 +1,73 @@
+// Multi Column
+//
+// Defines a multi column layout by using the class `.layout-multi-column--{n}`
+//
+// Markup:
+//  <div class="layout-multi-column layout-multi-column--3 paragraph paragraph--type--layout-multi-column paragraph--view-mode--default">
+//  <div class="clearfix text-formatted field field--name-field-body field--type-text-long field--label-hidden field__item"><h3>This is a 3 column card layout</h3><p>Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Lacinia quis vel eros donec ac odio tempor orci dapibus.</p></div>
+//  <div class="field field--name-field-cards field--type-entity-reference-revisions field--label-hidden field__items">
+//    <div class="field__item">
+//      <div class="card paragraph paragraph__card paragraph--type-card paragraph--view-mode-default teaser teaser--stacked">
+//        <div class="teaser__image">
+//          <a href="#"><img src="https://picsum.photos/600/400?random=1" width="600" height="400" class="image-style-card"></a>
+//        </div>
+//        <div class="teaser__main">
+//          <h4>Card number 1</h4><p>Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Lacinia quis vel eros donec ac odio tempor orci dapibus.</p>
+//        </div>
+//        <div class="teaser__suffix">
+//          <div class="field field--name-field-link field--type-link field--label-hidden field__item"><a href="/services">Read more</a></div>
+//        </div>
+//      </div>
+//    </div>
+//    <div class="field__item">
+//      <div class="card paragraph paragraph__card paragraph--type-card paragraph--view-mode-default teaser teaser--stacked">
+//        <div class="teaser__image">
+//          <a href="#"><img src="https://picsum.photos/600/400?random=1" width="600" height="400" class="image-style-card"></a>
+//        </div>
+//        <div class="teaser__main">
+//          <h4>Card number 2</h4><p>Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Lacinia quis vel eros donec ac odio tempor orci dapibus.</p>
+//        </div>
+//        <div class="teaser__suffix">
+//          <div class="field field--name-field-link field--type-link field--label-hidden field__item"><a href="/services">Read more</a></div>
+//        </div>
+//      </div>
+//    </div>
+//    <div class="field__item">
+//      <div class="card paragraph paragraph__card paragraph--type-card paragraph--view-mode-default teaser teaser--stacked">
+//        <div class="teaser__image">
+//          <a href="#"><img src="https://picsum.photos/600/400?random=1" width="600" height="400" class="image-style-card"></a>
+//        </div>
+//        <div class="teaser__main">
+//          <h4>Card number 3</h4><p>Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Lacinia quis vel eros donec ac odio tempor orci dapibus.</p>
+//        </div>
+//        <div class="teaser__suffix">
+//          <div class="field field--name-field-link field--type-link field--label-hidden field__item"><a href="/services">Read more</a></div>
+//        </div>
+//      </div>
+//    </div>
+//  </div>
+// </div>
+//
+// Style guide: Layouts.multi-column
+
+.layout-multi-column {
+  @extend %responsive-gutter--default;
+
+  .field--name-field-body {
+    text-align: center;
+  }
+
+  @each $col in $layout-multi-column-cols {
+    &--#{$col} {
+      .field--name-field-cards {
+        @include duk-gutter-vertical($duk-base-spacing-unit);
+        @extend %duk-grid--#{$col}-col;
+        @extend %grid-gutter;
+
+        .field--name-field-body {
+          text-align: left;
+        }
+      }
+    }
+  }
+}

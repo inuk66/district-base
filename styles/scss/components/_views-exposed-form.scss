@@ -1,0 +1,21 @@
+
+.views-exposed-form {
+  margin-bottom: $duk-one-n-half-spacing-unit;
+
+  .form--inline .form-item,
+  .form-actions {
+    float: none;
+    clear: none;
+    display: inline-block;
+    vertical-align: baseline;
+
+    label {
+      @include duk-font-color('primary');
+      display: block;
+    }
+  }
+}
+
+.view .attachment {
+  margin-bottom: $duk-triple-spacing-unit;
+}

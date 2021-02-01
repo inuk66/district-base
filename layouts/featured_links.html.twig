@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Template for a featured-links.
+ */
+#}
+{%
+  set classes = [
+  'featured-links',
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    <div class="featured-links__image">
+      {{ content.image }}
+    </div>
+
+    <div class="featured-links__content">
+      <div class="featured-links__body">
+        {{ content.main }}
+      </div>
+      <div class="featured-links__links">
+        {{ content.links }}
+      </div>
+    </div>
+
+  </div>
+{% endif %}

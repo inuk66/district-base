@@ -1,0 +1,120 @@
+// Featured links
+//
+// A large featured links component with image and body.
+//
+// Style guide: Components.featured-links
+//
+// Markup:
+// <div class="featured-links duk-pl--2 duk-pr--2">
+//   <div class="featured-links__image">
+//     <img src="https://www.fillmurray.com/640/640">
+//   </div>
+//   <div class="featured-links__content">
+//     <div class="featured-links__body">
+//         <h2>This is a featured links component</h2>
+//         <p>Nullam vitae augue orci. Suspendisse vitae nunc non velit egestas imperdiet. Morbi elit elit, elementum et tortor vitae, faucibus pellentesque elit</p>
+//         <h4>Popular services</h4>
+//     </div>
+//     <div class="featured-links__links">
+//       <ul>
+//         <li><a href="#">Join the library</a></li>
+//         <li><a href="#">Computers &amp; internet</a></li>
+//         <li><a href="#">Search the catalogue</a></li>
+//         <li><a href="#">Suggest an item</a></li>
+//         <li><a href="#">Locations &amp; opening hours</a></li>
+//         <li><a href="#">Ask a librarian</a></li>
+//       </ul>
+//     </div>
+//   </div>
+// </div>
+.featured-links {
+  @extend %responsive-gutter--default;
+
+  &__image {
+    display: none; // TODO: consider if this should be removed on mobile, image is generally just decorative.
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__body {
+    max-width: 500px;
+    font-size: 115%;
+
+    h1, h2 {
+      @include duk-font-size('h1');
+      @include duk-font-weight('bold');
+      margin-bottom: $duk-one-n-half-spacing-unit;
+      line-height: 1.2;
+    }
+
+    h4 {
+      margin-top: $duk-double-spacing-unit;
+    }
+  }
+
+  &__links {
+    max-width: 600px;
+    @include duk-gutter-vertical($duk-base-spacing-unit);
+
+    ul {
+      @include duk-reset-list;
+    }
+
+    a {
+      @include button-icon-small;
+      @include duk-font-weight('bold');
+      display: block;
+      padding: $duk-base-spacing-unit;
+      margin-left: -($duk-base-spacing-unit);
+      transition: background-color 0.2s linear;
+
+      &:before {
+        float: right;
+        margin: 0 0 0 $duk-half-spacing-unit;
+        transition: all 0.2s linear;
+      }
+
+      &:hover {
+        background-color: rgba(duk-get-palette-color('primary'), 0.1);
+      }
+    }
+  }
+
+  @include duk-at-breakpoint('laptop') {
+    @include duk-gutter-vertical($duk-triple-spacing-unit);
+    display: flex;
+
+    &__content {
+      width: 60%;
+      order: 1;
+      padding-right: $duk-base-spacing-unit;
+    }
+
+    &__image {
+      display: block;
+      align-self: center;
+      width: 40%;
+      order: 2;
+    }
+  }
+
+  @include duk-at-breakpoint('tablet') {
+    &__links {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      ul li {
+        width: 47%;
+        padding-right: $duk-base-spacing-unit;
+
+        &:nth-of-type(odd) {
+          margin-right: 6%;
+        }
+      }
+    }
+  }
+}

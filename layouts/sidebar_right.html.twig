@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Template for a sidebar right layout.
+ */
+#}
+{%
+  set classes = [
+  'layout-sidebar-right'
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    <div class="layout-sidebar-right__region--main layout-sidebar-right__region">
+      {{ content.main }}
+    </div>
+    <div class="layout-sidebar-right__region--sidebar layout-sidebar-right__region">
+      {{ content.sidebar }}
+    </div>
+
+  </div>
+{% endif %}
+

@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Template for a search result layout.
+ */
+#}
+{%
+  set classes = [
+  'search-result',
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    <div class="search-result__title">
+      <strong>{{ content.title }}</strong>
+      <span><i></i></span>
+    </div>
+
+    {% if content.description %}
+      <div class="search-result__description">
+        {{ content.description }}
+      </div>
+    {% endif %}
+
+    {% if content.meta %}
+      <div class="search-result__meta">
+        {{ content.meta }}
+      </div>
+    {% endif %}
+
+  </div>
+{% endif %}
+

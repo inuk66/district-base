@@ -1,0 +1,54 @@
+
+.page {
+  &__wrapper {
+    @include duk-container('max');
+    @extend %contextual--hide;
+  }
+
+  &__top {
+    @extend %palette__bg--primary;
+
+    .region-secondary-menu {
+      display: flex;
+    }
+
+    // TODO: Find a better way of dealing with page top on mobile.
+    // Perhaps move all to slideout menu.
+    display: none;
+    @include duk-at-breakpoint('desktop-menu') {
+      display: block;
+    }
+  }
+
+  &__header {
+    @include duk-bg-color('lightest');
+  }
+
+  &__highlight {
+    @extend %palette__bg--primary;
+    position: relative;
+  }
+
+  &__main {
+    min-height: $duk-content-min-height;
+  }
+
+  &__above-footer {
+    @include duk-bg-color('op-dark-tint-3');
+    margin-top: $duk-triple-spacing-unit;
+
+    .container {
+      @extend %container--large;
+      @include duk-gutter-vertical($duk-double-spacing-unit, 'padding');
+    }
+  }
+
+  &__footer {
+    @extend %palette__bg--primary;
+  }
+
+  &__footer-bottom {
+    @include duk-bg-color('op-dark-tint-1');
+  }
+
+}

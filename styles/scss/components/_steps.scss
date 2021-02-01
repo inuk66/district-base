@@ -1,0 +1,75 @@
+
+// Steps
+//
+// Steps are used to display process.
+//
+// Style guide: Components.steps
+//
+// Markup:
+//  <ol class="steps">
+//    <li class="steps__item">
+//      <h4 class="title-text__title">This is the first step</h4>
+//      <div class="title-text__text">
+//        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+//      </div>
+//    </li>
+//    <li class="steps__item">
+//      <h4 class="title-text__title">This is the second step</h4>
+//      <div class="title-text__text">
+//        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+//      </div>
+//    </li>
+//    <li class="steps__item">
+//      <h4 class="title-text__title">Third and final step</h4>
+//      <div class="title-text__text">
+//        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+//        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+//      </div>
+//    </li>
+//  </ol>
+
+$step-number-size: 48px;
+
+ol.steps {
+  @extend %responsive-gutter--default;
+  list-style: none;
+  padding: 0;
+  counter-reset: li;
+
+  > li {
+    position: relative;
+    padding: 0 0 $duk-one-n-half-spacing-unit $duk-triple-spacing-unit;
+    margin: 0 0 0 ($step-number-size / 2);
+    border-left: duk-border('default', 3px, dotted);
+    min-height: 100px;
+
+    &:before {
+      @include duk-position-absolute(left -28px top -5px);
+      @include duk-font-weight(bold);
+      font-size: 1.8rem;
+      content: counter(li);
+      counter-increment: li;
+      border: duk-border('primary', 2px);
+      background-color: white;
+      width: $step-number-size;
+      height: $step-number-size - 2;
+      border-radius: 100%;
+      text-align: center;
+      padding-top: 2px;
+    }
+
+    &:last-child {
+      border-left-color: transparent;
+      margin-bottom: 0;
+    }
+
+    .title-text__title {
+      margin-top: 0;
+      padding-top: 6px;
+    }
+
+    &:hover:before {
+      background-color: lighten(duk-get-palette-color('primary'), 70%);
+    }
+  }
+}

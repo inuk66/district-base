@@ -1,0 +1,32 @@
+name: District Base
+type: theme
+base theme: classy
+description: District CMS
+package: custom
+core: 8.x
+libraries:
+  - district_base/global
+ckeditor_stylesheets:
+  - styles/css/main.css
+  - styles/css/editor.css
+regions:
+  top: 'Page top'
+  secondary_menu: 'Secondary menu'
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  highlighted: 'Highlighted'
+  hero: 'Hero'
+  breadcrumb: 'Breadcrumb'
+  title: 'Title'
+  pre_content: 'Pre content'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  post_content: 'Post content'
+  above_footer: 'Above footer'
+  footer_top: 'Footer Top'
+  footer_mid: 'Footer Mid'
+  footer_links: 'Footer Links'
+  bottom: 'Page bottom'
+  mobile_panel: 'Mobile panel'

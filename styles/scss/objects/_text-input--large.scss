@@ -1,0 +1,56 @@
+
+// This is use for large text inputs such as search or subscribe.
+// Should be applied to the form wrapper around the text box.
+.text-input--large,
+%text-input--large {
+  position: relative;
+  border-bottom: duk-border();
+  margin-bottom: $duk-base-spacing-unit;
+  padding-bottom: 6px;
+
+  label {
+    @extend %element-invisible;
+  }
+
+  .form-type-search-api-autocomplete,
+  .form-type-textfield {
+    @include duk-icon('search');
+    float: none;
+    margin: 0;
+
+    &:before {
+      @include duk-position-absolute(left 12px bottom 18px);
+      @include duk-font-color('primary');
+      font-size: 1.3rem;
+    }
+  }
+
+  .form-text {
+    @include duk-gutter-horizontal(50px);
+    border: 0;
+    width: 100%;
+    max-width: 1000px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .form-actions {
+    @include duk-position-absolute(right 12px bottom 0);
+    @include duk-icon('arrow-thin-right');
+    margin: 0;
+
+    &:before {
+      @include duk-font-color('secondary');
+      @include duk-position-absolute(right 12px bottom 18px);
+      font-size: 1.3rem;
+    }
+
+    input {
+      opacity: 0;
+      width: 3rem;
+      overflow: hidden;
+    }
+  }
+}

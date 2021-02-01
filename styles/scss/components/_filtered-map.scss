@@ -1,0 +1,32 @@
+
+.filtered-map {
+  @include duk-gutter-vertical($duk-double-spacing-unit, 'margin');
+  margin-bottom: $duk-triple-spacing-unit;
+
+  // Filters handled by secondary view in header which trigger
+  // changing elements in this form.
+  // TODO: Consider hiding just the elements we override.
+  .views-exposed-form {
+    display: none;
+  }
+
+  &__type-filter {
+    margin-bottom: $duk-one-n-half-spacing-unit;
+    padding-right: $duk-one-n-half-spacing-unit;
+
+    ul {
+      @include duk-reset-list;
+
+      li {
+        display: inline-block;
+        margin: 0 $duk-quarter-spacing-unit $duk-quarter-spacing-unit 0;
+      }
+    }
+
+    .button {
+      @include button-hover-reset;
+    }
+
+  }
+
+}

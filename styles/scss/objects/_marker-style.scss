@@ -1,0 +1,31 @@
+
+$marker-icon-hue-multiplier: 10;
+$marker-icon-max-colors: 50;
+
+.marker-style {
+
+  // Using divIcon we need to fix position of marker.
+  .leaflet-marker-icon & {
+    margin-top: -41px; // height of the marker icon image.
+    margin-left: -13px; // half the width of the marker icon image.
+  }
+
+  .button & {
+    background: #3a8ece; // Same base color as marker icon.
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-right: 7px;
+  }
+
+  // Generate a hue variant based a the number. This should assign a fairly
+  // unique color to an element based on a string. @see StringId formatter.
+  @for $i from 1 through $marker-icon-max-colors {
+    $rotate: round((($marker-icon-max-colors / $i) * 360));
+    &-#{$i} {
+      filter: hue-rotate(#{$rotate}deg);
+    }
+  }
+
+}

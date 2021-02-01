@@ -1,0 +1,41 @@
+.social-media-footer {
+  .social-media-block__content {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+
+    span {
+      @extend %duk-sr-only;
+    }
+
+    a {
+      display: block;
+      margin-left: $duk-double-spacing-unit;
+      transition: transform 100ms ease;
+
+      &:hover,
+      &:focus {
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  .icon-facebook {
+    @include duk-icon('facebook');
+  }
+
+  .icon-twitter {
+    @include duk-icon('twitter');
+  }
+
+  .icon-instagram {
+    @include duk-icon('instagram');
+  }
+
+  .icon-youtube {
+    @include duk-icon('youtube');
+  }
+
+}

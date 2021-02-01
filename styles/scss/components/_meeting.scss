@@ -1,0 +1,21 @@
+
+.node--type-meeting {
+  border-bottom: duk-border('default', 1px, dotted);
+  margin-bottom: $duk-double-spacing-unit;
+  padding-bottom: $duk-base-spacing-unit;
+
+  .meeting {
+    &__date {
+      margin-bottom: 0;
+    }
+
+    &__title {
+      @include duk-gutter-vertical($duk-half-spacing-unit);
+    }
+
+    &__download {
+      display: inline-block;
+      margin-right: $duk-base-spacing-unit;
+    }
+  }
+}

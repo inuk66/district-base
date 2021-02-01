@@ -1,0 +1,107 @@
+
+$text-on-image-side--width: 500px;
+// Text on Image
+//
+// Text on Image layout
+//
+// Style guide: Layouts.text-on-image
+//
+// Markup:
+//<div class="layout-text-on-image layout-text-on-image--middle paragraph paragraph__layout-text-on-image paragraph--type-layout-text-on-image paragraph--view-mode-default text-on-image" style="max-width: 100%;">
+//  <div class="text-on-image__image js-img-to-bg" style="background-image: url(https://picsum.photos/1300/867);">
+//    <img src="https://picsum.photos/1300/867" width="1300" height="867" class="image-style-max-1300x1300" style="visibility: hidden;">
+//  </div>
+//  <div class="text-on-image__content">
+//    <div class="text-on-image__content--inner">
+//      <div class="clearfix text-formatted field field--name-field-body field--type-text-long field--label-hidden field__item">
+//        <h2>This is a text on image component</h2>
+//        <p>This can help break up content and add additional colour to your page</p>
+//      </div>
+//      <a href="#" class="button button--secondary">Find out more</a>
+//    </div>
+//  </div>
+//</div>
+.text-on-image {
+  @extend %responsive-gutter--default;
+  max-width: map-get($duk-base-containers, 'max');
+  position: relative;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  width: 100vw;
+
+  &__image {
+    @include duk-position-absolute(top 0 left 0 right 0 bottom 0);
+    @include duk-z-index('under');
+
+    &:after {
+      @include duk-position-absolute(top 0 left 0 right 0 bottom 0);
+      @include duk-z-index('alpha');
+      background-color: rgba(#111, 0.4);
+      content: "";
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  &__content {
+    @extend %container--large;
+    @include duk-gutter-vertical($duk-triple-spacing-unit, 'padding');
+    @include duk-font-color('lightest');
+    @include duk-z-index('beta');
+    text-shadow: 0 2px 4px rgba(#111, 0.4);
+
+    text-align: center;
+    position: relative;
+
+    @include duk-headings {
+      @include duk-font-color('lightest');
+      @include duk-font-size('h2');
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: 140%;
+      margin: $duk-base-spacing-unit 0 $duk-one-n-half-spacing-unit;
+    }
+
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    .button {
+      margin-top: $duk-one-n-half-spacing-unit;
+      text-shadow: none;
+    }
+
+    @include duk-at-breakpoint('desktop') {
+      @include duk-gutter-vertical(($duk-triple-spacing-unit * 2), 'padding');
+
+      @include duk-headings {
+        @include duk-font-size('h1');
+      }
+    }
+  }
+
+  &__content--inner {
+    @extend %container--small;
+
+    .layout-text-on-image--left & {
+      max-width: $text-on-image-side--width;
+      text-align: left;
+      margin-left: 0;
+    }
+
+    .layout-text-on-image--right & {
+      max-width: $text-on-image-side--width;
+      text-align: right;
+      margin-right: 0;
+    }
+  }
+
+}

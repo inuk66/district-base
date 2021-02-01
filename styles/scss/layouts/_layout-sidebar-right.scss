@@ -1,0 +1,27 @@
+.layout-sidebar-right {
+
+  &__region {
+    margin-bottom: $duk-triple-spacing-unit;
+  }
+
+  @include duk-at-breakpoint('tablet') {
+    display: flex;
+
+    &__region {
+      &--main {
+        width: 65%;
+        padding-right: $duk-double-spacing-unit;
+      }
+
+      &--sidebar {
+        width: 35%;
+        padding-left: $duk-double-spacing-unit;
+      }
+
+      &--main,
+      &--sidebar {
+        margin-top: $duk-base-spacing-unit;
+      }
+    }
+  }
+}

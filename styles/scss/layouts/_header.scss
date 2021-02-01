@@ -1,0 +1,54 @@
+// Header
+// -------------------------------------------------------
+
+// Header
+//
+// Defines the header style.
+//
+// Style guide: Layouts.header
+//
+// Markup:
+//  <div id="header">
+//    <div class="block-system-branding">
+//      <img src="http://placekitten.com/g/300/300">
+//    </div>
+//  <div>
+.page__header {
+  position: relative;
+
+  .container {
+    @extend %container--large;
+    width: 100%;
+    position: relative;
+
+    @include duk-at-breakpoint('desktop-menu') {
+      width: 90%;
+    }
+  }
+}
+
+.page__top{
+  .container {
+    @extend %container--large;
+    @include duk-at-breakpoint('desktop-menu') {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+  }
+}
+
+.region-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block-system-branding-block {
+  @include duk-gutter-vertical(map-get($duk-logo-size, 'gutter-vertical'), 'padding');
+
+  img {
+    max-height: map-get($duk-logo-size, 'max-height');
+    display: block;
+  }
+}

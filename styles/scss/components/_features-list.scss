@@ -1,0 +1,9 @@
+.features-list {
+  @include duk-at-breakpoint('tablet') {
+    column-count: 2;
+  }
+
+  @include duk-at-breakpoint('laptop') {
+    column-count: 3;
+  }
+}

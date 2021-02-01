@@ -1,0 +1,127 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the District Base theme.
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function district_base_preprocess_html(&$variables) {
+  // Body classes for sidebars.
+  if (isset($variables['page']['sidebar_first']) && isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('layout-page-sidebars-both');
+  }
+  elseif (isset($variables['page']['sidebar_first'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('layout-page-sidebars-first');
+  }
+  elseif (isset($variables['page']['sidebar_second'])) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('layout-page-sidebars-second');
+  }
+  else {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('layout-page-sidebars-none');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function district_base_preprocess_page(&$variables) {
+  $config = \Drupal::config('system.site');
+  $powered_by = ' - Powered by <a href="https://districtcms.com?src=wl">DistrictCMS</a>';
+
+  $variables['copyright'] = [
+    '#markup' => '&copy; ' . date('Y')  . ' ' . $config->get('name') . $powered_by,
+  ];
+
+  $variables['links'] = [
+    '#markup' => '<a href="/sitemap">' . t('Sitemap') . '</a>',
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for layout.html.twig.
+ */
+function district_base_preprocess_layout(&$variables) {
+  // Add entity and bundle classes to layout template.
+  if (isset($variables['content']['#entity'])) {
+    $entity_type = $variables['content']['#entity']->getEntityTypeId();
+    $bundle = $variables['content']['#entity']->bundle();
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier($entity_type);
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier($entity_type . '__' . $bundle);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for layout-flag.html.twig.
+ *
+ * TODO: Move to doghouse_landing_page module.
+ */
+function district_base_preprocess_layout_flag(&$variables) {
+  $paragraph = isset($variables['content']['#paragraph']) ? $variables['content']['#paragraph'] : FALSE;
+  if ($paragraph && $paragraph->bundle() == 'layout_flag') {
+    $pallet = $paragraph->get('field_palette')->getString();
+    $variables['attributes']['class'][] = $pallet;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Prevent chosen from being applied to this select element as the styles don't
+ * work in this context.
+ */
+function district_base_form_node_preview_form_select_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['view_mode']['#attributes']['class'][] = 'chosen-disable';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function district_base_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form['#id'] != 'views-exposed-form-meetings-meeting-agendas-and-minutes') {
+    return;
+  }
+
+  $now = (new DateTime())->setTimestamp(time());
+
+  $input = $form_state->getUserInput();
+
+  $form['field_date_value_start']['#value'] = !empty($input['field_date_value_start']) ?
+    $input['field_date_value_start'] :
+    '2000-01-01';
+
+  $form['field_date_value_end']['#value'] = !empty($input['field_date_value_end']) ?
+    $input['field_date_value_end'] :
+    $now->format('Y-m-d');
+
+  $form['actions']['submit']['#attributes']['class'][] = 'button--secondary';
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function district_base_preprocess_block(&$variables) {
+  if ($variables['base_plugin_id'] != 'system_branding_block') {
+    return;
+  }
+
+  /* @var \Drupal\Core\Theme\ActiveTheme $theme */
+  $theme = \Drupal::service('theme.manager')->getActiveTheme();
+
+  $mobile_logo_path = $theme->getPath() . '/logo-mobile.svg';
+
+  if (!file_exists($mobile_logo_path)) {
+    return;
+  }
+
+  $variables['site_logo_mobile'] = '/' . $mobile_logo_path;
+}

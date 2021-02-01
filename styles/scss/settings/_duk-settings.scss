@@ -1,0 +1,339 @@
+// Duk Overrides
+//
+// See <a href="https://bitbucket.org/doghouseagency/doghouse-uikit/src/2.x/scss/_settings.scss" >scss/_settings.scss</a> for all values.
+//
+// Styleguide Settings.duk
+
+// Spacing unit
+//
+// ``` scss
+// $duk-base-spacing-unit:       1rem;
+// $duk-half-spacing-unit:       $duk-base-spacing-unit / 2;
+// $duk-quarter-spacing-unit:    $duk-base-spacing-unit / 4;
+// $duk-one-n-half-spacing-unit: $duk-base-spacing-unit * 1.5;
+// $duk-double-spacing-unit:     $duk-base-spacing-unit * 2;
+// $duk-triple-spacing-unit:     $duk-base-spacing-unit * 3;
+// $duk-quad-spacing-unit:       $duk-base-spacing-unit * 4;
+// ```
+//
+// Styleguide Settings.duk.spacing-unit
+$duk-base-spacing-unit:       1rem;
+$duk-half-spacing-unit:       $duk-base-spacing-unit / 2;
+$duk-quarter-spacing-unit:    $duk-base-spacing-unit / 4;
+$duk-one-n-half-spacing-unit: $duk-base-spacing-unit * 1.5;
+$duk-double-spacing-unit:     $duk-base-spacing-unit * 2;
+$duk-triple-spacing-unit:     $duk-base-spacing-unit * 3;
+$duk-quad-spacing-unit:       $duk-base-spacing-unit * 4;
+
+// Typography
+//
+// ``` scss
+// $duk-base-font-import: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap';
+// $duk-base-font-family: 'Nunito Sans', sans-serif;
+//
+// $duk-base-font-sizes: (
+//  'h1':        (size: 2.1em, height: 1.4),
+//  'h2':       (size: 2.0em, height: 1.4),
+//  'h5':       (size: 1.3em, height: 1.4),
+//  'h4':       (size: 1.2em, height: $duk-base-line-height),
+// );
+//
+// $duk-base-font-weights: (
+//  'regular':    400,
+//  'medium':     600,
+//  'bold':       700,
+// );
+// ```
+//
+// Styleguide Settings.duk.typography
+
+// Font Family
+$duk-base-font-import: 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;900&display=swap';
+$duk-base-font-family: 'Nunito Sans', sans-serif;
+
+// Font Sizes
+$duk-base-font-sizes: (
+  'h1':               (size: 2.1em, height: 1.4),
+  'h2':               (size: 2.0em, height: 1.4),
+  'h5':               (size: 1.3em, height: 1.4),
+  'h4':               (size: 1.2em, height: $duk-base-line-height),
+  'huge':             (size: 2.5em, height: 1.2),
+  'smaller':          (size: 0.875rem, height: $duk-base-line-height),
+  'larger':           (size: 1.125rem, height: $duk-base-line-height),
+  'heading-small':    (size: 2.0rem, height: 1.2),
+  'heading-medium':   (size: 2.1rem, height: 1.2),
+  'heading-large':    (size: 2.3125rem, height: 1.2),
+);
+
+// Font weights.
+$duk-base-font-weights: (
+  'regular':    400,
+  'medium':     600,
+  'bold':       700,
+  'black':      900,
+);
+
+// Colors
+//
+// Various color maps
+//
+// ``` scss
+// $duk-colors: (
+//  'valhalla':         #261C54, // Dark purple.
+//  'purple-heart':     #5C21D8, // Mid purple.
+//  'waterloo':         #7d7798, // Light purple.
+//  'purple-tint':      #F4F3F3, // Very light purple.
+//  'mango':            #FFBE0B, // Yellow.
+//  'mine-shaft':       #333333, // Dark grey.
+//  'op-dark-tint-1':   rgba(#111, 0.2),
+//  'op-dark-tint-2':   rgba(#111, 0.1),
+// );
+//
+// $duk-palette: (
+//  'primary':           map-get($duk-colors, 'valhalla'),
+//  'primary-light':     map-get($duk-colors, 'purple-heart'),
+//  'secondary':         map-get($duk-colors, 'mango'),
+//  'tertiary':          map-get($duk-colors, 'purple-tint'),
+//  'body-text':         map-get($duk-colors, 'mine-shaft'),
+//  'tint':              map-get($duk-colors, 'purple-tint'),
+//  'white':             #ffffff,
+//  'op-dark-tint-1':    map-get($duk-colors, 'op-dark-tint-1'),
+//  'op-dark-tint-2':    map-get($duk-colors, 'op-dark-tint-2'),
+// );
+//
+// $duk-font-colors: map-merge($duk-palette, (
+//  'body':                   map-get($duk-palette, 'body-text'),
+//  'heading':                map-get($duk-palette, 'primary'),
+//  'highlght-heading':       map-get($duk-palette, 'primary'),
+//  'link':                   map-get($duk-palette, 'primary'),
+//  'light-on-primary':       map-get($duk-palette, 'tint'),
+//  'lightest-on-primary':    map-get($duk-palette, 'white'),
+//  'nav':                    map-get($duk-palette, 'body-text'),
+//  'nav-hover':              map-get($duk-palette, 'primary-light'),
+// ));
+//
+// $duk-bg-colors:  map-merge($duk-palette, (
+//  'body':               map-get($duk-palette, 'white'),
+//  'tint':               map-get($duk-palette, 'tint'),
+//  'highlight':          map-get($duk-palette, 'primary'),
+//  'op-dark-tint-1':     map-get($duk-palette, 'op-dark-tint-1'),
+//  'op-dark-tint-2':     map-get($duk-palette, 'op-dark-tint-2'),
+// ));
+//
+// $duk-button-colors: (
+//  'primary':          map-get($duk-palette, 'primary'),
+//  'primary-text':     map-get($duk-palette, 'white'),
+//  'primary-icon':     map-get($duk-palette, 'secondary'),
+//  'secondary':        map-get($duk-palette, 'secondary'),
+//  'secondary-text':   map-get($duk-palette, 'primary'),
+//  'secondary-icon':   map-get($duk-palette, 'primary'),
+//  'tertiary':         map-get($duk-palette, 'tertiary'),
+//  'tertiary-text':    map-get($duk-palette, 'primary'),
+//  'tertiary-icon':    map-get($duk-palette, 'primary'),
+//  'light':            map-get($duk-palette, 'white'),
+//  'light-text':       map-get($duk-palette, 'primary'),
+//  'light-icon':       map-get($duk-palette, 'secondary'),
+//  'transparent':      rgba(map-get($duk-palette, 'white'), 0.1),
+//  'transparent-text': map-get($duk-palette, 'white'),
+//  'transparent-icon': rgba(map-get($duk-palette, 'white'), 0.9),
+// );
+//
+// $duk-border-colors: map-merge($duk-palette, ());
+// ```
+//
+// Styleguide Settings.duk.colors
+$duk-colors: (
+  'valhalla':         #261C54, // Dark purple.
+  'purple-heart':     #5C21D8, // Mid purple.
+  'waterloo':         #7d7798, // Light purple.
+  'purple-tint':      #F4F3F3, // Very light purple.
+  'mango':            #FFBE0B, // Yellow.
+  'mine-shaft':       #333333, // Dark grey.
+  'op-dark-tint-1':   rgba(#111, 0.2),
+  'op-dark-tint-2':   rgba(#111, 0.1),
+  'op-dark-tint-3':   rgba(#111, 0.05),
+);
+
+$duk-palette: (
+  'primary':           map-get($duk-colors, 'valhalla'),
+  'primary-light':     map-get($duk-colors, 'purple-heart'),
+  'secondary':         map-get($duk-colors, 'mango'),
+  'tertiary':          map-get($duk-colors, 'purple-tint'),
+  'body-text':         map-get($duk-colors, 'mine-shaft'),
+  'tint':              map-get($duk-colors, 'purple-tint'),
+  'description':       map-get($duk-grays, '700'),
+  'white':             map-get($duk-grays, 'white'),
+  'black':             map-get($duk-grays, 'black'),
+  'op-dark-tint-1':    map-get($duk-colors, 'op-dark-tint-1'),
+  'op-dark-tint-2':    map-get($duk-colors, 'op-dark-tint-2'),
+  'op-dark-tint-3':    map-get($duk-colors, 'op-dark-tint-3'),
+);
+
+$duk-font-colors: map-merge($duk-palette, (
+  'body':                   map-get($duk-palette, 'body-text'),
+  'heading':                map-get($duk-palette, 'primary'),
+  'highlght-heading':       map-get($duk-palette, 'primary'),
+  'highlight':              map-get($duk-palette, 'primary-light'),
+  'link':                   map-get($duk-palette, 'primary'),
+  'light-on-primary':       map-get($duk-palette, 'tint'),
+  'lightest-on-primary':    map-get($duk-palette, 'white'),
+  'nav':                    map-get($duk-palette, 'body-text'),
+  'nav-hover':              map-get($duk-palette, 'primary-light'),
+  'breadcrumb':             map-get($duk-palette, 'secondary'),
+  'breadcrumb-last':        map-get($duk-palette, 'white'),
+));
+
+$duk-bg-colors:  map-merge($duk-palette, (
+  'body':               map-get($duk-palette, 'white'),
+  'tint':               map-get($duk-palette, 'tint'),
+  'highlight':          map-get($duk-palette, 'primary'),
+  'op-dark-tint-1':     map-get($duk-palette, 'op-dark-tint-1'),
+  'op-dark-tint-2':     map-get($duk-palette, 'op-dark-tint-2'),
+));
+
+$duk-border-colors: map-merge($duk-palette, ());
+
+$duk-button-colors: (
+  'primary':          map-get($duk-palette, 'primary'),
+  'primary-text':     map-get($duk-palette, 'white'),
+  'primary-icon':     map-get($duk-palette, 'secondary'),
+  'secondary':        map-get($duk-palette, 'secondary'),
+  'secondary-text':   map-get($duk-palette, 'primary'),
+  'secondary-icon':   map-get($duk-palette, 'primary'),
+  'tertiary':         map-get($duk-palette, 'tertiary'),
+  'tertiary-text':    map-get($duk-palette, 'primary'),
+  'tertiary-icon':    map-get($duk-palette, 'secondary'),
+  'light':            map-get($duk-palette, 'white'),
+  'light-text':       map-get($duk-palette, 'primary'),
+  'light-icon':       map-get($duk-palette, 'secondary'),
+  'transparent':      rgba(map-get($duk-palette, 'white'), 0.1),
+  'transparent-text': map-get($duk-palette, 'white'),
+  'transparent-icon': rgba(map-get($duk-palette, 'white'), 0.9),
+);
+
+
+// Buttons
+//
+// ``` scss
+// $duk-base-button-settings: (
+//  'font-weight':    bold,
+//  'icon-size':      0.5rem,
+// );
+//
+// $duk-base-button-sizes: (
+//  'small': 75%,
+//  'large': 130%,
+// );
+// ```
+//
+// Styleguide Settings.duk.buttons
+$duk-base-button-settings: (
+  'font-weight':    bold,
+  'icon-size':      0.5rem,
+);
+
+$duk-base-button-sizes: (
+  'small': 75%,
+  'large': 130%,
+);
+
+// Layouts
+//
+// ``` scss
+// $duk-content-min-height: 600px;
+//
+// $duk-base-containers: (
+//  'x-small':    576px,
+//  'small':      768px,
+//  'medium':     992px,
+//  'large':      1200px,
+//  'x-large':    1440px,
+//  'xx-large':   1680px,
+//  'xxx-large':  1800px,
+//  'max':        1920px,
+// );
+//
+// $duk-base-breakpoints: (
+//  'none': 0,
+//  'x-small': 300px,
+//  'small': 576px,
+//  'medium': 768px,
+//  'large': 992px,
+//  'x-large': 1200px,
+//  'xx-large': 1300px,
+//  'xxx-large': 1590px,
+//  'xxxx-large': 1800px,
+// );
+//
+// $duk-base-breakpoint-states: (
+//  'desktop-menu':               x-large,
+//  'no-horizontal-gutter':       xx-large,
+// );
+//
+// $duk-base-responsive-grids: (
+//  '4-col': (medium: 2, x-large: 4),
+// );
+// ```
+//
+// Styleguide Settings.duk.layouts
+
+$duk-content-min-height: 600px;
+
+$duk-base-containers: (
+  'x-small':    576px,
+  'small':      768px,
+  'medium':     992px,
+  'large':      1200px,
+  'x-large':    1440px,
+  'xx-large':   1680px,
+  'xxx-large':  1800px,
+  'max':        1920px,
+);
+
+// Breakpoints.
+$duk-base-breakpoints: (
+  'none': 0,
+  'x-small': 300px,
+  'small': 576px,
+  'medium': 768px,
+  'large': 992px,
+  'x-large': 1200px,
+  'xx-large': 1300px,
+  'xxx-large': 1590px,
+  'xxxx-large': 1800px,
+);
+
+// Breakpoint states.
+$duk-base-breakpoint-states: (
+  'desktop-menu':               x-large,
+  'no-horizontal-gutter':       xx-large,
+  'content-overhang':           xxx-large,
+);
+
+// Responsive grids.
+$duk-base-responsive-grids: (
+  '4-col': (medium: 2, x-large: 4),
+  '6-col': (x-small: 2, small: 3, medium: 6),
+  '8-col': (small: 2, large: 4, x-large: 8),
+);
+
+// Border radius values.
+$duk-border-radii: map-merge((
+  'default': 0, // Gets applied to most images, and elements that are square.
+), $duk-border-radii);
+
+// Logo
+// ---------------------------------------------------
+$duk-logo-size: (
+  'max-height': 30px,
+  'gutter-vertical': 1rem,
+);
+
+// Icons
+// ---------------------------------------------------
+
+// Custom icons.
+@import "icon";
+$duk-icons: (
+  'duk': $duk-icon-mappings,
+);

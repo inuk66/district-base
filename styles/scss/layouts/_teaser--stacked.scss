@@ -1,0 +1,122 @@
+// Teaser Stacked
+//
+// Teaser with content stacked.
+//
+// Style guide: Layouts.teaser-stacked
+//
+// Markup:
+//    <div class="node node__event node--type-event node--view-mode-teaser teaser teaser--stacked" style="max-width: 360px;">
+//    <div class="teaser__image-wrapper">
+//       <div class="teaser__image js-img-to-bg">
+//         <a href="#"><img src="https://picsum.photos/400/300" width="400" height="300" class="image-style-teaser-default">
+//         </a>
+//       </div>
+//       <div class="teaser__tag">
+//         <div class="category-tags category-tags--secondary">
+//           <a>Cafe</a>
+//         </div>
+//      </div>
+//    </div>
+//    <div class="teaser__title">
+//      <a href="#" hreflang="en">Lorem ipsum dolor</a>
+//    </div>
+//    <div class="teaser__main">
+//      sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+//    </div>
+//    <div class="teaser__suffix">
+//      <div class="field field--name-node-link field--type-ds field--label-hidden field__item">  <a href="#">Read more</a>
+//      </div>
+//    </div>
+//  </div>
+%teaser--stacked,
+.teaser--stacked {
+
+  > * {
+    margin: $duk-base-spacing-unit 0 $duk-base-spacing-unit;
+  }
+
+  .teaser {
+    &__title {
+      margin-bottom: $duk-base-spacing-unit;
+
+      > * {
+        @include duk-font-size('h5');
+        @include duk-font-weight('bold');
+        margin: 0;
+      }
+    }
+
+    &__image-wrapper {
+      position: relative;
+    }
+
+    &__image {
+      @include duk-border-radius('default');
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      a {
+        display: block;
+      }
+    }
+
+    &__tag {
+      @include duk-position-absolute(right $duk-half-spacing-unit bottom $duk-half-spacing-unit);
+      @include duk-z-index('gamma');
+
+      a {
+        @extend %button--secondary;
+        @extend %button--x-small;
+      }
+    }
+
+    &__content-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    &__main {
+      flex-grow: 1;
+      margin-bottom: $duk-base-spacing-unit;
+
+      > *:first-child {
+        margin-top: 0;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    &__suffix {
+      margin-top: 0;
+
+      a {
+        @include duk-font-weight('bold');
+        @include button-icon-small;
+        display: block;
+        position: relative;
+        padding-right: 2rem;
+
+        &:before {
+          @include duk-position-absolute(right 0 bottom 0);
+          margin: 0;
+        }
+
+        // CTA changes based on size of card.
+        .layout-multi-column--2 & {
+          @include button('secondary');
+
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

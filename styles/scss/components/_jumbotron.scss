@@ -1,0 +1,87 @@
+
+// Jumbotron
+//
+// Jumbotron that displays on the homepage.
+//
+// Style guide: Components.jumbotron
+//
+// .jumbotron--content-right - Content right
+// .jumbotron--full-image - Full Image
+// .jumbotron--content-right.jumbotron--full-image - Content right and full image
+//
+// Markup:
+// <div class="jumbotron {{modifier_class}}">
+//  <div class="jumbotron__image js-img-to-bg" style="background-image: url(https://picsum.photos/1200/500?random=1);">
+//   <img src="https://picsum.photos/1200/500?random=1" width="1200" height="500" class="image-style-jumbotron" style="visibility: hidden;">
+//  </div>
+//  <div class="jumbotron__container container">
+//    <div class="jumbotron__container-content">
+//      <div class="jumbotron__title">
+//      Welcome to District. This is our default website theme.</div>
+//      <a href="/services" class="button button--light">Learn More</a>
+//    </div>
+//  </div>
+//</div>
+.jumbotron {
+  position: relative;
+  height: $jumbotron-home--height--small;
+  text-align: center;
+  overflow: hidden;
+
+  &__container {
+    @include duk-z-index('beta');
+    position: relative;
+    max-width: 600px;
+    margin: 10% auto;
+  }
+
+  &__container-content {
+    @include duk-gutter-vertical(1rem, padding);
+    height: 100%;
+    font-size: 120%;
+  }
+
+  &__title {
+    @extend %responsive-heading;
+    @include duk-font-color('white');
+    text-shadow: 0 1px 10px rgba(#000, 0.3);
+    margin: 0 0 $duk-half-spacing-unit !important;
+    max-width: 100%; // IE11 has some overflow issues.
+  }
+
+  &__blurb {
+    @extend %responsive-description;
+    @include duk-font-color('white');
+    margin-bottom: $duk-triple-spacing-unit;
+    text-shadow: 0 1px 5px rgba(#000, 0.3);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    @include duk-position-absolute(top 0 right 0 left 0 bottom 0);
+    @include duk-z-index('alpha');
+
+    img {
+      display: none;
+    }
+  }
+
+  @include duk-at-breakpoint('tablet') {
+    height: $jumbotron-home--height--medium;
+
+    &__blurb {
+      font-size: 120%;
+    }
+  }
+
+  @include duk-at-breakpoint('desktop') {
+    height: $jumbotron-home--height--large;
+
+    &__blurb {
+      font-size: 140%;
+    }
+  }
+}

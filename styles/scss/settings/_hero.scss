@@ -1,0 +1,36 @@
+// Hero Banners
+//
+// Styleguide Settings.hero
+
+// Large banner
+//
+// Settings used for the banner primarily used on the homepage.
+//
+// ``` scss
+// $hero-banner-content-width--large: calc((100vw * 0.4) - (100vw - #{map-get($duk-base-containers, 'large')})/2);
+// $hero-banner-home--height--small: 500px;
+// $hero-banner-home--height--medium: 400px;
+// $hero-banner-home--height--large: 500px;
+// ```
+//
+// Styleguide Settings.hero.large
+$hero-banner-content-width--medium: 40%;
+$hero-banner-content-width--large: calc((100vw * 0.4) - (100vw - #{map-get($duk-base-containers, 'large')})/2);
+$hero-banner-home--height--small: 500px;
+$hero-banner-home--height--medium: 350px;
+$hero-banner-home--height--large: 450px;
+$hero-banner-home--arrow-size: 2rem;
+$hero-banner-home--min-image-height: 200px;
+
+// Basic banner
+//
+// Settings used for the smaller basic banner
+//
+// ``` scss
+// $hero-basic--height--small: 150px;
+// $hero-basic--height--large: 300px;
+// ```
+//
+// Styleguide Settings.hero.basic
+$hero-basic--height--small: 150px;
+$hero-basic--height--large: 300px;

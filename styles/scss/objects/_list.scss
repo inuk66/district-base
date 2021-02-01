@@ -1,0 +1,53 @@
+// List
+
+// Unordered list
+//
+// Unordered list of items
+//
+// Markup:
+// <ul>
+//   <li>Item one</li>
+//   <li>Item two</li>
+//   <li>Item three</li>
+// </ul>
+//
+// Style guide: list.1-ul
+
+// Ordered list
+//
+// Ordered list of items
+//
+// Markup:
+// <ol>
+//   <li>Item one</li>
+//   <li>Item two</li>
+//   <li>Item three</li>
+// </ol>
+//
+// Style guide: list.2-ol
+
+// Inline list
+//
+// Places list items inline.
+//
+// ``` scss
+// @extend %list-inline;
+// ```
+//
+// Markup:
+// <ul class="list-inline">
+//   <li>Item one</li>
+//   <li>Item two</li>
+//   <li>Item three</li>
+// </ul>
+//
+// Style guide: list.3-inline
+%list-inline,
+.list-inline {
+  @include duk-reset-list;
+
+  li {
+    display: inline-block;
+    margin-right: $duk-quarter-spacing-unit;
+  }
+}

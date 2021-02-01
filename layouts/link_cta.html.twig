@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Template for a teaser stacked layout.
+ */
+#}
+{%
+  set classes = [
+  'link',
+  'link--cta',
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    <div class="link__title">
+      <strong>{{ content.title }}</strong>
+      <span><i></i></span>
+    </div>
+
+    {% if content.description %}
+      <div class="link__description">
+        {{ content.description }}
+      </div>
+    {% endif %}
+
+    <div class="link__link">
+      {{ content.link }}
+    </div>
+
+  </div>
+{% endif %}
+

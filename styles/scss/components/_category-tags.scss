@@ -1,0 +1,25 @@
+// Category tags
+//
+// Defines tag styles for categories
+//
+// Style guide: Buttons.1-objects.4-Category-tags
+//
+// Markup:
+// <div class="category-tags category-tags--secondary">
+//   <a>Secondary category style</a>
+// <div>
+%category-tags,
+.category-tags {
+  @extend %button--small;
+  display: inline-block;
+
+  > * {
+    @include duk-font-weight('bold');
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+
+  &--secondary {
+    @extend %button--secondary;
+  }
+}

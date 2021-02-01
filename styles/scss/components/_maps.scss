@@ -1,0 +1,11 @@
+// Make maps greyscale.
+// @todo more of an override than a component. Perhaps relocate.
+.leaflet-tile-pane {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+// Apply default border radius to maps.
+.leaflet-container {
+  @include duk-border-radius('default');
+}

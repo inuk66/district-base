@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Template for a teaser stacked layout.
+ */
+#}
+{%
+  set classes = [
+  'teaser',
+  'teaser--stacked',
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    {% if content.prefix|render|striptags|trim is not empty %}
+      <div class="teaser__prefix">
+        {{ content.prefix }}
+      </div>
+    {% endif %}
+
+    {% if content.image %}
+      <div class="teaser__image-wrapper">
+        <div class="teaser__image js-img-to-bg">
+          {{ content.image }}
+        </div>
+        {% if content.tag %}
+          <div class="teaser__tag">
+            {{ content.tag}}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="teaser__content-wrapper">
+      {% if content.title %}
+        <div class="teaser__title">
+          {{ content.title }}
+        </div>
+      {% endif %}
+
+      {% if content.main %}
+        <div class="teaser__main">
+          {{ content.main }}
+        </div>
+      {% endif %}
+
+      {% if content.suffix %}
+        <div class="teaser__suffix">
+          {{ content.suffix }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+

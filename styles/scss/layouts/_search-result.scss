@@ -1,0 +1,67 @@
+// Search result
+//
+// Defines a search result layout
+//
+// Style guide: Layouts.search-result
+//
+// Markup:
+//  <div class="node node__landing-page node--type-landing-page node--view-mode-search-result search-result">
+//    <div class="search-result__title">
+//      <strong>
+//        <a href="#" hreflang="en">Lorem ipsuml</a>
+//      </strong>
+//      <span><i></i></span>
+//    </div>
+//    <div class="search-result__description">
+//      … Lorem <strong>ipsum</strong> dolor sit amet <strong>consectetur</strong> adipiscing elit, sed do eiusmod tempor <strong>incididunt</strong> ut labore et dolore magna aliqua. Ut enim ad minim veniam …
+//    </div>
+//    <div class="search-result__meta">
+//      <div class="field field--name-bundle-fieldnode field--type-ds field--label-hidden field__item">Landing page</div>
+//    </div>
+//  </div>
+.search-result {
+  margin: 2rem 0rem;
+  border-bottom: duk-border('op-dark-tint-1', 1px);
+  padding-bottom: 2rem;
+
+  &__title {
+    strong > * {
+      @include duk-font-size('h3');
+    }
+    a {
+      @include link-heading-hover;
+    }
+  }
+
+  &__description {
+    margin: 0.5rem 0;
+  }
+
+  .field--name-field-tags {
+    &, .field__items {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .field__label {
+      margin-right: .5em;
+    }
+
+    a {
+      @extend %duk-button;
+      @extend %duk-button--secondary;
+      @extend %duk-button--small;
+      padding: 0 .5em;
+    }
+  }
+
+  // @todo this classname seems wrong
+  .field--name-bundle-fieldnode,
+  .search-result-capsule {
+    @extend %duk-button--small;
+    border-radius: map-get($duk-base-button-settings, border-radius);
+    display: inline-block;
+    padding: 0 .5em;
+    background-color: duk-get-palette-color('op-dark-tint-2');
+  }
+}

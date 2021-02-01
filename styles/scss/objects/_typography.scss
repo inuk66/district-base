@@ -1,0 +1,49 @@
+// Objects
+//
+// Weight: 10
+//
+// Style guide: Typography.objects
+
+// responsive-heading
+//
+// Applies a heading style that is responsive.
+//
+// ``` scss
+// .my-heading {
+//  @extent %responsive-heading;
+// }
+// ```
+// ``` html
+// <div class="responsive-heading">My Heading</div>
+// ```
+//
+// Markup:
+// <div class="responsive-heading">My Heading</div>
+//
+// Style guide: Typography.objects.responsive-heading
+.responsive-heading,
+%responsive-heading {
+  @include responsive-heading();
+}
+
+// responsive-description
+//
+// Applies a heading style that is responsive.
+//
+// ``` scss
+// .my-heading {
+//  @extent %responsive-description;
+// }
+// ```
+// ``` html
+// <div class="responsive-description">My description</div>
+// ```
+//
+// Markup:
+// <div class="responsive-description">Ipsa semper do cursus, autem excepteur voluptate pretium proin nisl, corporis. Auctor? Architecto? Cras metus </div>
+//
+// Style guide: Typography.objects.responsive-description
+.responsive-description,
+%responsive-description {
+  @include responsive-description();
+}

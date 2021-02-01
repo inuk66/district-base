@@ -1,0 +1,10 @@
+
+// This overrides styles when displayed in CkEditor dropdown.
+// Common usage would be adjusting margin or colour to suit the editor.
+.cke_panel_list {
+
+  p, p.lead {
+    margin: 0;
+  }
+
+}

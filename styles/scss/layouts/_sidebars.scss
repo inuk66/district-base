@@ -1,0 +1,40 @@
+
+$sidebar-width: 25% !default;
+$sidebar-gutter: 3% !default;
+$content-width: (100 - ($sidebar-width + $sidebar-gutter)) !default;
+
+body {
+  &.layout-page-sidebars-first {
+    @include duk-at-breakpoint('laptop') {
+      #main .container {
+        display: flex;
+
+        .layout-sidebar-first {
+          width: $sidebar-width;
+        }
+
+        .layout-content {
+          width: $content-width;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  &.layout-page-sidebars-second {
+    @include duk-at-breakpoint('laptop') {
+      #main .container {
+        display: flex;
+
+        .layout-sidebar-second {
+          width: $sidebar-width;
+        }
+
+        .layout-content {
+          width: $content-width;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}

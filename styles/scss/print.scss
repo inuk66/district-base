@@ -1,0 +1,49 @@
+// Print stylesheet
+// -------------------------------------------------------
+
+// Hide sections / elements.
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.doghouse-menu-toggle__button,
+.global-search__toggle-icon {
+  visibility: hidden;
+}
+
+#sitewide-alert,
+.page__above-footer,
+footer {
+  display: none !important;
+}
+
+
+// Components.
+
+.hero-carousel {
+  height: auto !important;
+}
+
+.hero-banner {
+  height: auto !important;
+
+  &__container {
+    max-width: 650px !important;
+    margin: 0 2%;
+  }
+}
+
+.duk-grid--3-col,
+.field--name-field-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  & > * {
+    width: 50%;
+  }
+}

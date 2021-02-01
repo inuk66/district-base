@@ -1,0 +1,84 @@
+
+// Hero Basic
+//
+// Basic hero that displays on content with an image field.
+//
+// Style guide: Components.hero-basic
+//
+// Markup:
+//<div class="page__highlight with-hero">
+//  <div class="region region-hero">
+//    <div class="js-img-to-bg hero-basic__image" style="background-image: url(https://picsum.photos/1200/400?random=1); background-size: cover;">  <img src="https://picsum.photos/1200/400?random=1" width="1200" height="400" alt="" class="image-style-banner" style="visibility: hidden;">
+//    </div>
+//  </div>
+//  <div class="container">
+//    <div class="region region-breadcrumb">
+//      <div class="block block-system block-system-breadcrumb-block">
+//        <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+//          <h2 id="system-breadcrumb" class="visually-hidden duk-sr-only">Breadcrumb</h2>
+//          <ol>
+//            <li>
+//              <a href="/">Home</a>
+//            </li>
+//            <li>
+//              <a href="/news-events">News and Events</a>
+//            </li>
+//            <li>
+//              <a href="/news-events/articles">News Articles</a>
+//            </li>
+//          </ol>
+//        </nav>
+//      </div>
+//    </div>
+//    <div class="region region-title">
+//      <div class="block block-core block-page-title-block">
+//        <h1 class="js-quickedit-page-title page-title"><span class="field field--name-title field--type-string field--label-hidden">District CMS News Article</span>
+//        </h1>
+//      </div>
+//    </div>
+//  </div>
+//</div>
+.hero-basic {
+  &__image {
+    @include duk-border-radius('default');
+    min-height: $hero-basic--height--small;
+
+    img {
+      display: none;
+    }
+
+    @include duk-at-breakpoint('laptop') {
+      @include duk-position-absolute(top 0 right 0 bottom 0);
+      width: 40%;
+      min-height: $hero-basic--height--large;
+    }
+
+    @include duk-at-breakpoint('desktop') {
+      width: 55%;
+    }
+  }
+}
+
+// Update highlight area and title if hero exists.
+.page__highlight.with-hero {
+  overflow: hidden;
+
+  .contextual-region {
+    position: static;
+  }
+
+  @include duk-at-breakpoint('laptop') {
+    min-height: $hero-basic--height--large;
+
+    .page-title {
+      @include duk-gutter-vertical($duk-triple-spacing-unit);
+      width: 50%;
+    }
+  }
+
+  @include duk-at-breakpoint('desktop') {
+    .page-title {
+      width: 35%;
+    }
+  }
+}

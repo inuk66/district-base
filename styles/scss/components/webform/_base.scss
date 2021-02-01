@@ -1,0 +1,77 @@
+
+// Generic webform styles that don't target a specific element type.
+// Be careful with changes here, need to test against all elements.
+.webform-submission-form {
+  @extend %duk-container--medium;
+
+  // Default element max width.
+  @include duk-form-element-text {
+    max-width: 1000px;
+  }
+
+  // Default label style.
+  .form-item > label {
+    @include duk-font-color('primary');
+    @include duk-font-weight('bold');
+    // TODO: Ensure works with user selecting element title placement.
+    display: block;
+  }
+
+  // Default more help link.
+  .webform-element-more--link {
+    @include duk-gutter-vertical($duk-half-spacing-unit);
+
+    a {
+      @extend %duk-button;
+      @extend %duk-button--secondary;
+      @extend %duk-button--small;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+
+  // Actions.
+  .form-actions {
+    @include duk-gutter-vertical($duk-double-spacing-unit);
+  }
+
+  // Buttons.
+  .webform-button--next.button,
+  .webform-button--submit.button--primary {
+    @extend %duk-button--secondary;
+  }
+
+  // Formatted text.
+  .form-type-processed-text {
+    h3 {
+      margin: $duk-double-spacing-unit 0 0 0;
+    }
+
+    p {
+      margin: $duk-half-spacing-unit 0;
+    }
+  }
+}
+
+// Progress styles.
+.webform-progress {
+  // Default progress marker.
+  .progress-marker {
+    line-height: 28px;  // Fix default alignment.
+  }
+
+  // Active progress marker.
+  .webform-progress-tracker .progress-step.is-active .progress-marker {
+    @extend %palette__bg--primary;
+  }
+}
+
+// Confirm message.
+.webform-confirmation__message {
+  @include duk-gutter-vertical($duk-double-spacing-unit);
+  text-align: center;
+}
+
+

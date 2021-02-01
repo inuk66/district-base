@@ -1,0 +1,70 @@
+// Footer
+// -------------------------------------------------------
+
+// Footer
+//
+// Defines the footer layout.
+//
+// Style guide: Layouts.footer
+//
+// Markup:
+//  <div id="footer"><div class="container">
+//    I am some content in the main site footer
+//  </div></div>
+.page__footer {
+  .container {
+    @extend %container--large;
+  }
+
+  &-top,
+  &-bottom {
+    @include duk-gutter-vertical($duk-double-spacing-unit, 'padding');
+  }
+
+  &-brand {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &-mid,
+  &-links,
+  &-brand {
+    @include duk-gutter-vertical($duk-base-spacing-unit, 'padding');
+  }
+
+  &-bottom-pre-content {
+    @include duk-at-breakpoint('tablet') {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.footer-logo {
+  display: block;
+  background-image: url('../../images/logo-invert-full.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 178px;
+  height: 38px;
+  float: left;
+}
+
+.region-footer-mid {
+  display: flex;
+}
+
+.region-above-footer {
+  @include duk-at-breakpoint('tablet') {
+    display: flex;
+    align-items: center;
+
+    > div {
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+  }
+}

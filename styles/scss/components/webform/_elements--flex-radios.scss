@@ -1,0 +1,70 @@
+
+// Flex radios.
+.webform-submission-form {
+
+  .webform-options-display-buttons.form-radios {
+    margin: 1% -2%;
+
+    .form-item {
+      height: 90%;
+    }
+
+    .webform-options-display-buttons-label {
+      @extend %link--cta;
+      border: 2px solid transparent;
+      min-width: 200px; // Ensure the count per row is limited.
+      margin: 0;
+      height: 100%;
+
+      &:before {
+        @include duk-position-absolute(top 0 bottom 0 left 0);
+        background: transparent;
+        content: '';
+        width: $duk-quarter-spacing-unit;
+        border-radius: 3px 0 0 3px;
+        transition: 0.2s background linear;
+      }
+
+      .webform-options-display-buttons-title {
+        @extend %link--cta__title;
+      }
+
+      .description {
+        @include duk-font-size('body');
+        @include duk-font-weight('regular');
+        margin: 0;
+      }
+
+      &:hover {
+        .description,
+        .webform-options-display-buttons-title {
+          @extend %link--cta--hover;
+        }
+      }
+    }
+
+    .webform-options-display-buttons-wrapper {
+      margin: 0 2%;
+      flex: initial;
+
+      @include duk-at-breakpoint('phablet') {
+        width: 96%;
+      }
+
+      @include duk-at-breakpoint('tablet') {
+        width: 48%;
+        margin: 0 1%;
+      }
+    }
+
+    // Selected.
+    input:checked + label.webform-options-display-buttons-label {
+      border-color: duk-get-palette-color('primary');
+
+      &:before {
+        @include duk-bg-color('secondary');
+      }
+    }
+  }
+
+}

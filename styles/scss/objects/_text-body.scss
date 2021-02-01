@@ -1,0 +1,33 @@
+
+// Body text
+//
+// Default typography for any body text content. Applied to all generic field body fields
+// rather than as a sitewide default.
+//
+// Style guide: Typography.text-body
+//
+// Markup:
+//   <div class="text-body">
+//   <h2>Heading 2</h2>
+//   <p>Liquorice fruitcake lollipop. Sesame snaps muffin gummies cake. Apple pie
+//   dessert sugar plum toffee <a href="#">marzipan bonbon sesame</a> snaps halvah.
+//   Macaroon croissant sweet cheesecake. <em>Croissant icing</em> muffin. Gingerbread
+//   pudding halvah bonbon chupa chups bonbon sugar plum fruitcake ice cream. Bear
+//   claw <u>tootsie roll jujubes</u>.</p>
+//   <h3>Heading 3</h3>
+//   <p>Jelly donut dragée sweet <a href="#">roll</a> sesame snaps <strong>tootsie
+//   roll</strong>. Halvah powder chocolate cake pudding. Candy fruitcake jelly
+//   beans cake. Marshmallow jelly apple pie cookie. Wafer chupa chups powder wafer.
+//   <em>Danish cake candy</em>.</p>
+//   </div>
+%text-body {
+  h1, h2, h3 {
+    @include duk-font-weight('medium');
+  }
+}
+
+.text-body,
+.field--name-field-body,
+.field--name-body {
+  @extend %text-body;
+}

@@ -1,0 +1,51 @@
+
+// Teaser map-popup
+//
+// Smallest of teasers, displays in map popups
+//
+// Style guide: Layouts.teaser-map-popup
+//
+// Markup:
+//  <div class="teaser-map-popup">
+//    <div class="teaser__row">
+//      <div class="teaser__image">
+//        <img src="http://placekitten.com/100/100" />
+//      </div>
+//      <div class="teaser__content">
+//        <h4><a href="#">This is the title</a></h4>
+//        Subtext
+//      </div>
+//    </div>
+//  </div>
+.teaser--map-popup {
+  margin: 0 -5px;
+  .teaser {
+
+    &__row {
+      display: flex;
+      min-width: 250px;
+    }
+
+    &__image {
+      width: 100px;
+
+      img {
+        border-radius: 5px;
+      }
+    }
+
+    &__content {
+      padding: 0 $duk-base-spacing-unit;
+      width: 80%;
+
+      h4 {
+        margin: 0 0 $duk-quarter-spacing-unit 0;
+        line-height: 1.2;
+
+        a {
+          @include duk-font-color('primary');
+        }
+      }
+    }
+  }
+}

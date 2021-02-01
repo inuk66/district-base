@@ -1,0 +1,101 @@
+.region-doghouse-menu {
+  @include duk-z-index('max');
+  background-color: transparentize(map-get($mobile-nav, 'overlay-color'), 1);
+  transition: background-color 250ms ease;
+
+  &__wrapper {
+    @include duk-bg-color('primary');
+    max-width: map-get($mobile-nav, 'max-width');
+  }
+
+  .doghouse-menu--open & {
+    background-color: map-get($mobile-nav, 'overlay-color');
+  }
+
+  .doghouse-menu {
+    &__link {
+      color: map-get($mobile-nav, 'link-color');
+      font-size: map-get($mobile-nav, 'link-font-size');
+    }
+
+    &__parent-link,
+    &__top-level-link {
+      font-size: map-get($mobile-nav, 'link-parent-font-size');
+      @include duk-font-weight('bold');
+    }
+
+    &__nav {
+      @include duk-icon('caret-left');
+      color: rgba(map-get($mobile-nav, 'link-color'), 0.7);
+      transition: opacity 250ms linear;
+      font-size: map-get($mobile-nav, 'back-link-font-size');
+      text-transform: uppercase;
+
+      // Flip the arrow because we dont have one pointing left.
+      &:before {
+        margin-right: .5em;
+      }
+    }
+
+    // Hide the back button when top level links are shown.
+    [data-active-tree="0"] {
+      opacity: 0;
+    }
+
+    // Indent sub-links, but not the parent link.
+    &__level:not([data-depth="0"]) {
+      .doghouse-menu__link:not(.doghouse-menu__parent-link) {
+        padding-left: 40px;
+      }
+    }
+
+    &__link[data-submenu] {
+      text-decoration: none;
+      @include duk-icon('angle-right', 'duk', 'after');
+
+      &:after {
+        font-size: map-get($mobile-nav, 'link-icon-size');
+      }
+    }
+
+    &__item {
+      border-top: map-get($mobile-nav, 'link-border');
+    }
+  }
+
+  @include duk-at-breakpoint('desktop-menu') {
+    display: none !important;
+  }
+}
+
+.doghouse-menu-toggle,
+.doghouse-menu-close {
+  &__button {
+    @extend %duk-icon;
+    @include duk-reset-appearance;
+    font-size: 1.6rem;
+    padding: $duk-half-spacing-unit $duk-base-spacing-unit 0.2rem $duk-one-n-half-spacing-unit;
+    display: block;
+
+    @include duk-at-breakpoint('desktop-menu') {
+      display: none !important;
+    }
+  }
+
+  &__text {
+    @extend %sr-only;
+  }
+}
+
+.doghouse-menu-toggle {
+  &__button {
+    @extend %duk-icon-navicon;
+  }
+}
+
+.doghouse-menu-close {
+  &__button {
+    @extend %duk-icon-angle-left;
+    @include duk-font-color('white');
+  }
+}

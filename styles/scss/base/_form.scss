@@ -1,0 +1,93 @@
+// Form styles
+// -------------------------------------------------------
+
+// Form
+//
+// Base form element normalisation and styles. See `duk-form-normalize()`
+//
+// Style guide: Form.form
+//
+// Markup:
+//  <form>
+//    <div class="form-item"><label>Text field</label><input type="text" /></div>
+//    <div class="form-item"><label>Select</label><select><option>foo</option><optgroup label="Group"><option>bar</option><option>foobar</option></optgroup></select></div>
+//    <div class="form-item"><label>Multi Select</label><select multiple><option>foo</option><optgroup label="Group"><option>bar</option><option>foobar</option></optgroup></select></div>
+//    <div class="form-item"><label>Search field</label><input type="search" /></div>
+//    <div class="form-item"><label>Number field</label><input type="number" /></div>
+//    <div class="form-item"><label>Password field</label><input type="password" /></div>
+//    <div class="form-item"><label>Email field (disabled)</label><input disabled type="email" /></div>
+//    <div class="form-item"><label>Textarea</label><textarea></textarea></div>
+//    <p class="form-item"><input type="submit" class="button--primary value="Submit" /><button class="button--tertiary">Reset</button></p>
+//  </form>
+form {
+
+}
+
+
+// Form required
+//
+// Style guide: Form.form-required
+//
+// Markup:
+//  <div class="form-item">
+//    <p class="form-required">This is required</p>
+//  </div>
+.form-required:after {
+  @include duk-font-color('secondary');
+  content: "*";
+  background: none;
+  vertical-align: top;
+}
+
+// Target dropdown arrow in IE11.
+select::-ms-expand {
+  display: none;
+}
+
+// Details wrapper
+details {
+  border: none;
+
+  .details-wrapper {
+    padding: 0;
+  }
+}
+
+// Override Chosen styles so looks like a default element.
+form .chosen-container {
+  &-active.chosen-with-drop,
+  &-single {
+    .chosen-single {
+      @each $prop, $val in $duk-base-form-element {
+        #{$prop}: $val;
+      }
+
+      background: none;
+      background-image: none;
+      box-shadow: none;
+      @include duk-font-size('body');
+
+      b {
+        width: 15px;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.form-submit:focus {
+  outline: duk-get-palette-color('secondary') auto 1px;
+}
+
+.form-select:focus-within {
+  outline: duk-get-palette-color('secondary') auto 1px;
+}
+
+form .description {
+  @include duk-font-color('description');
+  margin-top: ($duk-quarter-spacing-unit / 2);
+}
+
+.form-select {
+  padding-right: $duk-triple-spacing-unit;
+}

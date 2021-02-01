@@ -1,0 +1,157 @@
+// Pretty up the style guide.
+
+$sidebar-font-color: #ddd;
+$primary-color: #261C54;
+$primary-light-color: #5C21D8;
+
+.kss-style {
+  // General typography.
+  h1, h2, h3, h4, h5 {
+    font-weight: normal;
+  }
+  h1 {
+    font-size: 2.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h3 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+
+  .kss-parameters__title {
+    color: $primary-color;
+  }
+
+  a {
+    &, &:visited {
+      color: $primary-color;
+    }
+    &:hover, &:focus, &:active {
+      color: darken($primary-color, 15%);
+    }
+  }
+
+  code {
+    font-size: 0.9em;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px;
+  }
+
+  pre code {
+    background: inherit;
+    border: 0;
+  }
+}
+
+#kss-node {
+  .kss-sidebar {
+    box-shadow: none;
+    background: #ffffff;
+    padding: 16px;
+    border-right: 3px solid $primary-light-color;
+
+    .kss-doc-title {
+      font-size: 1.1em;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      color: #888;
+      text-transform: capitalize;
+
+      &:before {
+        content: url('../../logo.svg');
+        display: block;
+        margin-right: .5rem;
+        margin-bottom: .5rem;
+        vertical-align: middle;
+      }
+    }
+
+    .kss-header {
+      margin-top: 1em;
+    }
+  }
+
+  .kss-nav {
+    &__ref {
+      color: $primary-color;
+      min-width: 25px;
+      padding-right: 8px;
+      display: inline-block;
+    }
+
+    &__menu-child {
+      > li {
+        background: rgba(0, 0, 0, .1);
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-left: 32px !important;
+        padding-right: 16px !important;
+
+        &:first-child {
+          margin-top: 3px;
+          padding-top: 10px;
+        }
+
+        &:last-child,
+        &:first-child {
+          border: 0;
+        }
+
+        .kss-nav__ref-child {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+
+  .kss-description {
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .kss-markup summary {
+    padding: 7px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f4f4f4;
+    }
+  }
+
+  .kss-modifier__wrapper,
+  details.kss-markup {
+    border-radius: 3px;
+  }
+
+  .kss-toolbar {
+    border: 0;
+    background: none;
+    display: block;
+  }
+
+  .kss-title__permalink {
+    &:hover, &:focus, &:active {
+      color: $primary-color;
+    }
+  }
+
+  .kss-title__ref {
+    color: #bbb;
+  }
+
+  .kss-section:not(.kss-section--depth-1) {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 48px;
+  }
+}

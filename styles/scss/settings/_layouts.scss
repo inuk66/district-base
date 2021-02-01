@@ -1,0 +1,59 @@
+// Layouts
+//
+// Settings used within various layouts.
+//
+// Styleguide Settings.layouts
+
+// Link CTA
+//
+// Settings used for the `link--cta` layout.<br>
+// Settings can be retrieved using the `link-cta-settings` function, documented <a href="/themes/custom/district_base/styleguide/section-functions.html#kssref-functions-link-cta-setting">here</a>
+//
+// ``` scss
+// $link-cta: () !default;
+// $link-cta: map-merge((
+//  'bg-color':              duk-get-palette-color('tint'),
+//  'bg-color--hover':       duk-get-palette-color('primary'),
+//  'font-color':            duk-get-palette-color('primary'),
+//  'font-color--hover':     duk-get-palette-color('tertiary'),
+//  'radius':                3px,
+//  'button-size':           24px,
+//  'icon-bg-color':         duk-get-palette-color('secondary'),
+//  'icon-bg-color--hover':  duk-get-palette-color('secondary'),
+//  'icon-color':            duk-get-palette-color('primary'),
+//  'icon-color--hover':     duk-get-palette-color('tint'),
+//  'icon-name':             'arrow-default-right',
+//  'icon-size':             0.5em,
+//  'icon-radius':           3px,
+// ), $link-cta);
+// ```
+//
+// Styleguide Settings.layouts.link-cta
+$link-cta: () !default;
+$link-cta: map-merge((
+  'bg-color':              duk-get-palette-color('tint'),
+  'bg-color--hover':       duk-get-palette-color('primary'),
+  'font-color':            duk-get-palette-color('primary'),
+  'font-color--hover':     duk-get-palette-color('tertiary'),
+  'radius':                map-get($duk-border-radii, 'small'),
+  'button-size':           24px,
+  'icon-bg-color':         duk-get-palette-color('secondary'),
+  'icon-bg-color--hover':  duk-get-palette-color('secondary'),
+  'icon-color':            duk-get-palette-color('primary'),
+  'icon-color--hover':     duk-get-palette-color('tint'),
+  'icon-name':             'arrow-default-right',
+  'icon-size':             0.5em,
+  'icon-radius':           3px,
+), $link-cta);
+
+// Multi column layout
+//
+// Settings used for the <b>layout-multi-column</b> layout documented <a href="/themes/custom/district_base/styleguide/section-layouts.html#kssref-layouts-multi-column">here</a>.<br>
+//
+// ``` scss
+// // Define the number of available columns in the layout
+// $layout-multi-column-cols: 2, 3, 4;
+// ```
+//
+// Styleguide Settings.layouts.layout-multi-column
+$layout-multi-column-cols: 2, 3, 4;

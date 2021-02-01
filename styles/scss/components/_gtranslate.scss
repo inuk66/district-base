@@ -1,0 +1,48 @@
+
+// Translation dropdown.
+.gtranslate {
+  @include duk-font-size('body');
+  display: inline-block;
+
+  .chosen-container,
+  select {
+    @include duk-gutter-vertical(0.47rem, 'padding');
+    font-size: 0.95em;
+    width: 140px;
+    cursor: pointer;
+    font-weight: inherit;
+
+    &, &:focus, .chosen-single {
+      background: transparent;
+      color: inherit;
+      border: 0;
+      box-shadow: none;
+
+      span {
+        margin-right: 0;
+      }
+
+      .chosen-single > div {
+        display: none;
+      }
+    }
+
+    option {
+      @include duk-bg-color('white');
+      @include duk-font-color('body');
+    }
+
+    .chosen-results li {
+      @include duk-gutter-vertical(0, 'padding');
+      background: none;
+      margin-bottom: $duk-quarter-spacing-unit;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 0.9em;
+
+      &.highlighted {
+        @include duk-font-color('primary');
+      }
+    }
+  }
+}

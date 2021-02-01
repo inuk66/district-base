@@ -1,0 +1,17 @@
+// Link CTA
+// -------------------------------------------------------
+
+// link-cta-setting
+//
+// Get a value from the $link-cta map. For use with a link cta layout.
+//
+// ``` scss
+// background-color: link-cta-setting('bg-color');;
+// ```
+//
+// $name - A property of the $link-cta map.
+//
+// Style guide: Functions.link-cta-setting
+@function link-cta-setting($name) {
+  @return map-get($link-cta, $name);
+}

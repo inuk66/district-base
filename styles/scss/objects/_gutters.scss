@@ -1,0 +1,10 @@
+
+// Used to provide consistent responsive margin on content components.
+.responsive-gutter--default,
+%responsive-gutter--default {
+  @include duk-gutter-vertical($duk-one-n-half-spacing-unit);
+  @include duk-gutter-responsive((
+    large: $duk-double-spacing-unit,
+    x-large: $duk-triple-spacing-unit
+  ), vertical, margin);
+}

@@ -1,0 +1,110 @@
+{#
+/**
+* @file
+* Theme override to display a single page.
+*
+* This is based on the core classy page.html.twig. It has been updated to include a couple
+* of extra regions (pre_content / post_content), some slight tweaks to structure (moving
+* menus into header) and some extra classes added.
+*/
+#}
+
+<div class="page__wrapper">
+
+  <header class="page__top" role="banner" id="top">
+    <div class="container">
+      {{ page.top }}
+      {{ page.secondary_menu }}
+    </div>
+  </header>
+
+  <header class="page__header" role="banner" id="header">
+    <div class="container">
+      {{ page.header }}
+    </div>
+  </header>
+
+  <div class="page__highlight{{ (page.hero) ? ' with-hero' : '' }}">
+    {{ page.hero }}
+    {% if page.highlighted %}
+       {{ page.highlighted }}
+    {% else %}
+      <div class="container page__heading">
+        {{ page.breadcrumb }}
+        {{ page.title }}
+      </div>
+    {% endif %}
+  </div>
+
+  <main role="main" id="main" class="page__main">
+
+    {{ page.pre_content }}
+
+    {{ page.help }}
+
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <div class="container">
+        {% if page.sidebar_first %}
+          <aside class="layout-sidebar-first" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        {% endif %}
+
+        <div class="layout-content">
+          {{ page.content }}
+        </div>{# /.layout-content #}
+
+        {% if page.sidebar_second %}
+          <aside class="layout-sidebar-second" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        {% endif %}
+    </div>
+  </main>
+
+  {{ page.post_content }}
+
+  {% if page.above_footer %}
+    <div class="page__above-footer" role="complementary">
+      <div class="container">
+        {{ page.above_footer }}
+      </div>
+    </div>
+  {% endif %}
+
+  <footer role="contentinfo" class="page__footer" id="footer">
+    <div class="page__footer-top">
+      <div class="container">
+        <div class="page__footer-brand">
+          <a href="/" class="footer-logo"></a>
+          {{ page.footer_top }}
+        </div>
+        <div class="page__footer-mid">
+          {{ page.footer_mid }}
+        </div>
+        <div class="page__footer-links">
+          {{ page.footer_links }}
+        </div>
+      </div>
+    </div>
+
+    <div class="page__footer-bottom">
+      <div class="container">
+        <div class="page__footer-bottom-pre-content">
+          <p class="page__footer-bottom-copyright">
+            {{ copyright }}
+          </p>
+          <p class="page__footer-bottom-links">
+            {{ links }}
+          </p>
+        </div>
+        {{ page.bottom }}
+      </div>
+    </div>
+  </footer>
+
+  {{ page.doghouse_menu }}
+
+</div>{# /.layout-container #}
+

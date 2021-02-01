@@ -1,0 +1,93 @@
+
+%palette,
+.palette {
+
+  &__bg--primary {
+    @include duk-bg-color('primary');
+    @include duk-font-color('light-on-primary');
+
+    @include duk-headings {
+      @include duk-font-color('lightest-on-primary');
+    }
+
+    blockquote, strong, a:not(.button) {
+      @include duk-font-color('lightest-on-primary');
+    }
+
+    ul.menu a.is-active {
+      color: inherit;
+    }
+  }
+
+  &__bg--primary-inverse {
+    @include duk-bg-color('white');
+    @include duk-font-color('primary');
+
+    @include duk-headings {
+      @include duk-font-color('primary');
+    }
+
+    blockquote, strong, a:not(.button) {
+      @include duk-font-color('primary');
+    }
+
+    ul.menu a.is-active {
+      color: inherit;
+    }
+  }
+
+  &__bg--secondary {
+    @include duk-bg-color('secondary');
+    @include duk-font-color('light-on-primary');
+
+    @include duk-headings {
+      @include duk-font-color('lightest-on-primary');
+    }
+
+    blockquote, strong, a:not(.button) {
+      @include duk-font-color('lightest-on-primary');
+    }
+
+    .button {
+      @include duk-bg-color('lightest');
+      @include duk-font-color('primary');
+    }
+
+    ul.menu a.is-active {
+      color: inherit;
+    }
+  }
+
+  &__bg--tertiary {
+    @include duk-bg-color('tint');
+    @include duk-font-color('primary');
+
+    @include duk-headings {
+      @include duk-font-color('primary');
+    }
+
+    blockquote, strong, a:not(.button) {
+      @include duk-font-color('primary');
+    }
+
+    ul.menu a.is-active {
+      color: inherit;
+    }
+  }
+
+  &__bg--base {
+    @include duk-bg-color('body');
+    @include duk-font-color('body');
+
+    @include duk-headings {
+      @include duk-font-color('body');
+    }
+    strong, a:not(.button) {
+      @include duk-font-color('body');
+    }
+
+    ul.menu a.is-active {
+      color: inherit;
+    }
+  }
+}

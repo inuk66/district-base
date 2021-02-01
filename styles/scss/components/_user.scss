@@ -1,0 +1,21 @@
+// This needs improving, was thrown together for a demo.
+.user--view-mode-full {
+  .address {
+    margin-top: 0;
+  }
+
+  .layout-sidebar-right__region {
+    .field__label {
+      @include duk-font-size('h4');
+      @include duk-font-color('primary');
+    }
+  }
+
+  .field--name-dynamic-token-fielduser-introduction > h3 {
+    margin-top: 0;
+  }
+
+  h2.webform-section-title {
+    @include duk-font-size('h4');
+  }
+}

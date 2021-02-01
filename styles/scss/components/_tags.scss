@@ -1,0 +1,27 @@
+
+// Tags
+//
+// Defines tags layout
+//
+// Style guide: Components.tags
+//
+// Markup:
+//  <ul class="tags">
+//    <li><a href="#">One</a></li>
+//    <li><a href="#">Two</a></li>
+//    <li><a href="#">Three</a></li>
+//  </ul>
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+
+    a {
+      @extend %category-tags;
+      @extend %category-tags--secondary;
+    }
+  }
+}

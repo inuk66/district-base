@@ -1,0 +1,23 @@
+// Add a responsive gutter to grid items.
+%grid-gutter {
+  list-style: none;
+  @include duk-flex-grid-gutter($duk-base-spacing-unit);
+
+  @include duk-at-breakpoint('desktop') {
+    @include duk-flex-grid-gutter($duk-double-spacing-unit);
+
+    > * {
+      @include duk-gutter-vertical($duk-half-spacing-unit, 'padding');
+    }
+  }
+}
+
+// Grid wrapper.
+.grid-wrapper {
+  @extend %responsive-gutter--default;
+
+  ul {
+    @extend %grid-gutter;
+  }
+}
+

@@ -1,0 +1,132 @@
+
+// Flag
+//
+// Defines a layout flag
+//
+// Style guide: Layouts.layout-flag
+//
+// Markup:
+//  <div class="layout-flag no-pullout">
+//    <div class="layout-flag__image js-img-to-bg" style="background-image: url('http://placekitten.com/1000/600')"> </div>
+//    <div class="layout-flag__content">
+//      <div><h3>Aenean ex felis</h3><p>Convallis ac nunc eu, cursus luctus augue etiam dictum nulla</p></div>
+//    </div>
+//  </div>
+.layout-flag {
+  @extend %palette__bg--primary;
+  @extend %responsive-gutter--default;
+
+  &__image {
+    min-height: 200px;
+    background-size: cover;
+    background-position: 50% 50%;
+
+    img {
+      display: none;
+    }
+  }
+
+  &__content{
+    padding: $duk-one-n-half-spacing-unit;
+
+    @include duk-headings {
+      @include duk-font-size('h3');
+    }
+
+    blockquote p {
+      @include duk-font-size('body');
+    }
+  }
+
+  .field--type-link {
+    margin-top: $duk-double-spacing-unit;
+
+    a {
+      @extend %duk-button;
+      @extend %duk-button--secondary;
+      @include duk-font-weight('bold');
+      @include duk-font-color('primary');
+    }
+  }
+
+  .field--type-text-long {
+    *:first-child {
+      margin-top: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .iframe_title {
+    display: none;
+  }
+
+  ul, ol {
+    @include duk-gutter-vertical($duk-one-n-half-spacing-unit);
+  }
+
+  li {
+    @include duk-font-weight('bold');
+    margin-bottom: $duk-half-spacing-unit;
+  }
+
+  @include duk-at-breakpoint('desktop') {
+    display: flex;
+    flex-wrap: nowrap;
+
+    &__content {
+      padding: ($duk-double-spacing-unit * 2) ($duk-double-spacing-unit * 2);
+      order: 2;
+      width: 45%;
+      display: flex;
+
+      > div {
+        align-self: center;
+      }
+
+      h1, h2 {
+        @include duk-font-size('h1');
+      }
+
+      p:not([class^="duk-text"]) {
+        font-size: 120%;
+      }
+    }
+
+    &__image {
+      order: 1;
+      width: 55%;
+      min-height: 440px;
+    }
+  }
+
+  @include duk-breakpoint(xxx-large) {
+    width: 1440px;
+    max-width: 100vw;
+    transform: translateX(-8%);
+
+    &.no-pullout {
+      margin-left: 0;
+      width: 100%;
+      max-width: none;
+    }
+
+    .flag-content {
+      padding: ($duk-base-spacing-unit * 5) ($duk-base-spacing-unit * 7.5);
+    }
+  }
+
+  &--right {
+    @include duk-at-breakpoint('desktop') {
+      .layout-flag__content {
+        order: 1;
+      }
+
+      .layout-flag__image {
+        order: 2;
+      }
+    }
+  }
+}

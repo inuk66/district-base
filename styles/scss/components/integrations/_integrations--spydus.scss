@@ -1,0 +1,43 @@
+
+// This is very temporary!!
+// Should be replaced once real integrations added, perhaps handled by the integration module.
+// See: district_integrations_spydus (library management).
+.block-district-integrations-spydus {
+  position: relative;
+
+  > .button {
+    @include duk-position-absolute(top $duk-quarter-spacing-unit right 0);
+  }
+}
+
+.spydus-remote-content {
+  @extend %duk-grid--6-col;
+  @include duk-flex-grid-gutter($duk-base-spacing-unit);
+  @include duk-gutter-vertical($duk-base-spacing-unit);
+  margin-bottom: $duk-triple-spacing-unit;
+
+  .loader {
+    font-size: 120%;
+    opacity: 0.8;
+
+    i {
+      @extend %duk-loader--grow;
+      opacity: 0.3;
+      margin-right: $duk-half-spacing-unit;
+    }
+  }
+
+  a {
+    display: block;
+    height: 100%;
+  }
+
+  > .item {
+    position: relative;
+
+    img {
+      width: 100%;
+      visibility: hidden;
+    }
+  }
+}

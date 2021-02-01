@@ -1,0 +1,47 @@
+
+// Downloads.
+//
+// file download component
+//
+// Style guide: Components.downloads
+//
+// Markup:
+//  <div class="paragraph__downloads">
+//    <div class="downloads__prefix">
+//      <p>Cras irure aenean malesuada rem ullamco tempore sodales voluptate, porttitor assumenda eleifend varius sed numquam, tempora aspernatur a at corrupti euismod architecto pretium iste recusandae</p>
+//    </div>
+//    <ul class="downloads__list">
+//      <li class="downloads__list-item">
+//        <div class="field__item">
+//          <span class="file file--mime-text-plain file--text"> <a href="#" type="text/plain; length=30">Council application form.txt</a></span>
+//        </div>
+//      </li>
+//      <li class="downloads__list-item">
+//        <div class="field__item">
+//          <span class="file file--mime-text-plain file--text"> <a href="#" type="text/plain; length=30">Information brochure and specifications.txt</a></span>
+//        </div>
+//      </li>
+//    </ul>
+//  </div>
+
+.paragraph__downloads {
+  @extend %responsive-gutter--default;
+
+  .downloads {
+    &__prefix {
+      @extend %text-body;
+      margin-bottom: $duk-one-n-half-spacing-unit;
+    }
+
+    &__list {
+      margin: $duk-base-spacing-unit 0 0 0;
+      padding: 0 0 $duk-base-spacing-unit 0;
+
+      li {
+        margin: 0 0 $duk-half-spacing-unit 0;
+        padding: 0;
+        list-style: none;
+      }
+    }
+  }
+}

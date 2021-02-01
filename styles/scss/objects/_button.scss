@@ -1,0 +1,94 @@
+// Objects
+//
+// Style guide: Buttons.1-objects
+
+// Variations
+//
+// Defines button colors. If only `button` class is used it will use `button--primary`.
+//
+// .button--primary - Primary button style
+// .button--secondary - Secondary button style
+// .button--tertiary - Tertiary button style
+// .button--light - Light button style
+// .button--transparent - Transparent style button.
+//
+// Style guide: Buttons.1-objects.1-variations
+//
+// Markup:
+//  <p>
+//   <a href="#" class="button {{modifier_class}}">Link button</a>
+//   <button class="button {{modifier_class}}">Button tag</button>
+//   <input type="submit" class="button {{modifier_class}}" value="Submit button" />
+//  </p>
+$button-variants: primary, secondary, tertiary, light, transparent;
+
+@each $button-variant in $button-variants {
+  .button--#{$button-variant},
+  .button.button--#{$button-variant},
+  .button-wrapper--#{$button-variant} a,
+  %button--#{$button-variant},
+  %duk-button--#{$button-variant} {
+    @include button($button-variant);
+  }
+}
+
+.button,
+.button-wrapper a,
+%duk-button {
+  @extend %duk-button--primary;
+}
+
+// Sizes
+//
+// Defines button sizes.
+//
+// .button--x-small - X Small button size
+// .button--small - Small button size
+// .button--large - Large button size
+//
+// Style guide: Buttons.1-objects.2-sizes
+//
+// Markup:
+//  <p>
+//   <a href="#" class="button {{modifier_class}}">Link button</a>
+//   <button class="button {{modifier_class}}">Button tag</button>
+//   <input type="submit" class="button {{modifier_class}}" value="Submit button" />
+//  </p>
+@each $type, $size in $duk-base-button-sizes {
+  .button--#{$type},
+  %button--#{$type} {
+    font-size: $size;
+  }
+}
+
+// Button x-small is commonly used for tags over teaser images.
+%button--x-small,
+.button--x-small {
+  @extend %button--small;
+  @include duk-font-weight('bold');
+  padding: .2em .5em;
+  font-size: .7em;
+
+  &:after {
+    right: $duk-half-spacing-unit !important;
+  }
+
+  &:hover {
+    padding-right: $duk-one-n-half-spacing-unit !important;
+  }
+}
+
+// Button icon small
+//
+// Defines button icon small
+//
+// Style guide: Buttons.1-objects.3-button-icon-small
+//
+// Markup:
+//  <p>
+//   <a href="#" class="button-icon-small">Link button</a>
+//  </p>
+%button-icon-small,
+.button-icon-small {
+  @include button-icon-small;
+}

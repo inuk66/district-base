@@ -1,0 +1,22 @@
+// Objects
+//
+// Style guide: links.objects
+
+// Link Heading Hover
+//
+// Applies a hover effect to header links.
+//
+// ``` scss
+// @extend %link-heading-hover;
+// ```
+//
+// Markup:
+// <h3>
+//  <a href="#" class="link-heading-hover">Link Heading Hover</a>
+// </h3>
+//
+// Style guide: links.objects.link-heading-hover
+.link-heading-hover,
+%link-heading-hover {
+  @include link-heading-hover;
+}

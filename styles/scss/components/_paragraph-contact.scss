@@ -1,0 +1,9 @@
+.paragraph--type--contact {
+  .field--name-field-description {
+    .field__label {
+      &:after {
+        content: ':';
+      }
+    }
+  }
+}

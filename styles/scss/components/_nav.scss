@@ -1,0 +1,130 @@
+// Nav
+// -------------------------------------------------------
+
+// Nav main
+//
+// Defines the main nav style.
+//
+// Style guide: Components.nav-main
+//
+// Markup:
+//  <div class="region-primary-menu">
+//    <ul class="menu">
+//      <li><a href="#">Home</a></li>
+//      <li><a href="#">About</a></li>
+//      <li><a href="#">Contact</a></li>
+//    </ul>
+//  </div>
+
+.region-top .menu--sites,
+.region-secondary-menu {
+  ul.menu {
+    @include duk-reset-list;
+
+    li {
+      display: inline-block;
+
+      a {
+        display: inline-block;
+        padding: $duk-half-spacing-unit;
+      }
+    }
+  }
+
+  @include duk-at-breakpoint('desktop-menu') {
+    margin-left: auto;
+  }
+}
+
+.region-secondary-menu {
+  ul.menu {
+    li > a {
+      font-size: 0.95em;
+
+      &.is-active {
+        @include duk-font-weight('bold');
+      }
+    }
+  }
+}
+
+.region-top .menu--sites {
+  ul.menu {
+    li > a {
+      @include duk-font-weight('black');
+      text-transform: uppercase;
+      font-size: 0.77rem;
+      padding: ($duk-quarter-spacing-unit + 0.1) $duk-base-spacing-unit $duk-quarter-spacing-unit;
+      border-radius: 4px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        background-color: rgba(duk-get-palette-color('white'), 0.1);
+      }
+
+      &.is-active {
+        position: relative;
+
+        &, &:hover {
+          @include duk-bg-color('white');
+          @include duk-font-color('primary');
+        }
+
+        @include duk-at-breakpoint('desktop-menu') {
+          &:after {
+            @include duk-position-absolute(left 0 right 0 top 90%);
+            @include duk-bg-color('white');
+            content: "";
+            height: 10px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+// Footer links.
+.region-footer-links {
+  ul.menu {
+    @include duk-reset-list;
+
+    > li {
+      a {
+        display: block;
+        padding-right: $duk-base-spacing-unit;
+      }
+
+      > a {
+        @include duk-font-color('lightest');
+        line-height: 1.1;
+        margin-bottom: $duk-half-spacing-unit;
+      }
+
+      > ul {
+        margin: $duk-half-spacing-unit 0 $duk-one-n-half-spacing-unit;
+      }
+
+      li > a {
+        opacity: 0.75;
+      }
+    }
+
+    @include duk-at-breakpoint('phablet') {
+      display: flex;
+
+      > li {
+        width: 50%;
+
+        ul.menu {
+          display: block;
+
+          li {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}

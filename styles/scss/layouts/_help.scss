@@ -1,0 +1,8 @@
+
+.region-help {
+  @extend %container--large;
+  @include duk-bg-color('tint');
+  margin-bottom: $duk-double-spacing-unit;
+  padding: $duk-base-spacing-unit $duk-double-spacing-unit;
+  border-bottom: duk-border();
+}

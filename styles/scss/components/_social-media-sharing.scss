@@ -1,0 +1,93 @@
+// Social Media Sharing.
+//
+// Block provided by doghouse_social_media_block module.
+//
+// Style guide: Components.social-media-share
+//
+// Markup:
+//  <div class="social-media-share" aria-label="Social media sharing">
+//    <div class="social-media-share__prefix">Share</div>
+//    <ul class="social-media-share__list">
+//      <li class="social-media-share__list-item">
+//        <a href="http://www.facebook.com/share.php?u=http://districtcms.local/home" target="_blank" aria-label="Share this page on facebook." title="Share this page on facebook." class="social-media-share__link social-media-share__link--facebook">
+//          <span>Facebook</span>
+//        </a>
+//      </li>
+//      <li class="social-media-share__list-item">
+//        <a href="https://twitter.com/intent/tweet?url=http://districtcms.local/home&amp;hashtags=Hashtag" target="_blank" aria-label="Share this page on twitter." title="Share this page on twitter." class="social-media-share__link social-media-share__link--twitter">
+//          <span>Twitter</span>
+//        </a>
+//      </li>
+//      <li class="social-media-share__list-item">
+//        <a href="mailto:?subject=Homepage&amp;body=Check out this site http://districtcms.local/home" aria-label="Email a link to this page." title="Email a link to this page." class="social-media-share__link social-media-share__link--email">
+//          <span>Email</span>
+//        </a>
+//      </li>
+//      <li class="social-media-share__list-item">
+//        <a href="#" class="js-dsms-print social-media-share__link social-media-share__link--print" aria-label="Open the print dialog." title="Open the print dialog.">
+//          <span>Print</span>
+//        </a>
+//      </li>
+//    </ul>
+//  </div>
+.region-post-content .block-social-media-share {
+  @extend %container--large;
+  margin-bottom: $duk-double-spacing-unit;
+}
+
+.social-media-share {
+  display: flex;
+  align-items: center;
+
+  &__prefix {
+    margin-right: $duk-base-spacing-unit;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  &__link {
+    @extend %duk-icon;
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: .5em;
+    border-radius: 50%;
+    color: duk-get-font-color('lightest-on-primary');
+
+    &:focus,
+    &:hover {
+      color: duk-get-font-color('lightest-on-primary');
+    }
+
+    span {
+      @extend %duk-sr-only;
+    }
+
+    &--facebook {
+      @extend %duk-icon-facebook;
+      background-color: map-get($social-media-colors, 'facebook');
+    }
+
+    &--twitter {
+      @extend %duk-icon-twitter;
+      background-color: map-get($social-media-colors, 'twitter');
+    }
+
+    &--email {
+      @extend %duk-icon-envelope;
+      background-color: map-get($social-media-colors, 'email');
+    }
+
+    &--print {
+      @extend %duk-icon-file-o;
+      background-color: map-get($social-media-colors, 'print');
+    }
+  }
+}

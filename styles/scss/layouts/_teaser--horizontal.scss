@@ -1,0 +1,88 @@
+// Teaser Horizontal
+//
+// Defines a teaser horizontal layout
+//
+// Style guide: Layouts.teaser-horizontal
+//
+// Markup:
+//    <div class="node node__event node--type-event node--view-mode-teaser-horizontal teaser teaser--horizontal">
+//    <div class="teaser__row">
+//      <div class="teaser__image js-img-to-bg" style="background-image: url(https://picsum.photos/400/300?random=1);">
+//        <a href="#" hreflang="en"><img src="https://picsum.photos/400/300?random=1" width="400" height="300" class="image-style-teaser-default" style="visibility: hidden;">
+//        </a>
+//      </div>
+//      <div class="teaser__content">
+//        <div class="teaser__title">
+//          <a href="#" hreflang="en">Lorem ipsum dolor</a>
+//        </div>
+//        <div class="teaser__main">
+//          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut...
+//        </div>
+//        <div class="teaser__tag">
+//          <div class="duk-mb--2">
+//            <ul class="tags">
+//              <li>
+//                <a>Community</a>
+//              </li>
+//          </ul>
+//        </div>
+//      </div>
+//      </div>
+//    </div>
+//  </div>
+.teaser--horizontal {
+  @include duk-gutter-vertical($duk-double-spacing-unit);
+
+  .teaser {
+
+    &__image {
+      @extend %palette__bg--tertiary;
+      @include duk-border-radius('default');
+      overflow: hidden;
+      height: 200px;
+      position: relative;
+
+      a {
+        @include duk-position-absolute(top 0 left 0 right 0 bottom 0);
+      }
+    }
+
+    &__content {
+      padding: $duk-base-spacing-unit 0;
+    }
+
+    @include duk-at-breakpoint('tablet') {
+      &__row {
+        display: flex;
+      }
+
+      &__image {
+        height: auto;
+        min-width: 150px;
+        max-width: 250px;
+        max-height: 200px;
+        width: 20%;
+      }
+
+      &__content {
+        width: 80%;
+        padding: 0 $duk-double-spacing-unit $duk-one-n-half-spacing-unit;
+      }
+    }
+
+    &__title {
+      > * {
+        @include duk-font-size('h4');
+        @include duk-font-weight('bold');
+        display: block;
+        margin: 0 0 $duk-base-spacing-unit 0;
+      }
+    }
+
+    &__tag {
+      * {
+        display: inline-block;
+      }
+    }
+  }
+}

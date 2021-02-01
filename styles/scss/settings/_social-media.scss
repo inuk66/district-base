@@ -1,0 +1,7 @@
+$social-media-colors: () !default;
+$social-media-colors: map-merge((
+  'facebook':  #4168af,
+  'twitter':   #657786,
+  'email':     #3d3d3d,
+  'print':     #470a67,
+), $social-media-colors);

@@ -1,0 +1,18 @@
+.node-preview-container {
+  bottom: 0;
+  background: rgba(0, 0, 0, .75);
+  color: duk-get-palette-color('white');
+
+  .node-preview-form-select {
+    @extend %duk-container--large;
+  }
+
+  .node-preview-backlink {
+    @extend %button--secondary;
+  }
+
+  .form-type-select {
+    display: inline-block;
+    margin: 0;
+  }
+}

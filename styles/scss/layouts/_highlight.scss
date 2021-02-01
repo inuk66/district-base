@@ -1,0 +1,29 @@
+
+.page__highlight {
+  position: relative;
+
+  .container {
+    @include duk-gutter-vertical($duk-base-spacing-unit, 'padding');
+    @extend %container--large;
+
+    @include duk-at-breakpoint('desktop') {
+      @include duk-gutter-vertical($duk-double-spacing-unit, 'padding');
+    }
+  }
+
+  // Forms the page "overhang" over the highlight.
+  &::after {
+    @extend %container--x-large;
+    @include duk-position-absolute(bottom 0 left 0 right 0);
+    @include duk-bg-color('white');
+    border-radius: 5px 5px 0 0;
+    height: 2rem;
+    content: '';
+    z-index: 4;
+    width: 100%;
+  }
+
+  .page-title {
+    margin: 2rem 1rem 2rem 0;
+  }
+}

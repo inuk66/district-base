@@ -1,0 +1,30 @@
+// Maintenance Page
+//
+// Defines styles for a maintenance page of a website.
+//
+// Style guide: Components.maintenance-page.
+//
+// Markup:
+// <div class="maintenance-page">
+//   <div class="layout-container">
+//     <a href="/" title="Home" rel="home">
+//       <img src="/themes/custom/district_base/logo.svg" alt="Home"/>
+//     </a>
+//     <h1>Site under maintenance</h1>
+//       <p>DistrictCMS is currently under maintenance. We should be back shortly. Thank you for your patience.</p>
+//   </div>
+// </div>
+.maintenance-page {
+  @include duk-bg-color('primary');
+
+  .layout-container {
+    @include duk-bg-color('white');
+    padding: $duk-base-spacing-unit;
+    margin-top: 10%;
+    @extend %container--small;
+  }
+
+  .site-name {
+    display: none;
+  }
+}

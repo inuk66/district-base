@@ -1,0 +1,228 @@
+// Text input large
+//
+// Defines large input, applied with %text-input--large
+//
+// Style guide: Components.text-input-large
+//
+// Markup:
+//  <div class="block-views-exposed-filter-blocksearch-sitewide-search">
+//  <form>
+//    <div class="form--inline clearfix">
+//      <div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-keywords form-item-keywords">
+//        <label for="edit-keywords">Keywords</label>
+//        <input placeholder="Find a service, event or general info" type="text" class="form-text">
+//      </div>
+//      <div class="form-actions js-form-wrapper form-wrapper">
+//        <input type="submit"value="Search" class="button js-form-submit form-submit">
+//      </div>
+//    </div>
+//  </form>
+//  </div>
+.homepage-search,
+.global-search {
+  &.block-views-exposed-filter-blocksearch-sitewide-search {
+    form {
+      .form--inline {
+        .form-item-keys {
+          display: block;
+          position: relative;
+          @include duk-icon('search');
+
+          .form-text {
+            border: 0;
+            border-bottom: duk-border('default');
+            padding: 1em 2.5em 1em ($duk-half-spacing-unit * 5);
+
+            &:focus {
+              outline: none;
+              border-bottom-color: duk-get-palette-color('secondary');
+            }
+          }
+
+          label {
+            @include duk-sr-only;
+          }
+
+          &:before {
+            @include duk-position-absolute(top 30% left $duk-half-spacing-unit);
+            @include duk-font-color('primary');
+            font-size: 1.3em;
+          }
+        }
+
+        // On all but main search page, only the keyword field is visible.
+        .form-actions,
+        .form-item {
+          display: none;
+
+          &.form-type-search-api-autocomplete {
+            display: block;
+            margin-top: 0;
+          }
+
+          .path-search & {
+            display: inline-block;
+
+            &.form-type-search-api-autocomplete {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .search-button {
+        @include duk-position-absolute(top 30% right $duk-half-spacing-unit);
+        @include duk-icon('arrow-thin-right');
+        @include duk-reset-appearance;
+        @include duk-font-color('secondary');
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  input.form-autocomplete {
+    @include ui-autocompole-loader;
+  }
+}
+
+// Search page
+//
+// Filters on the full search page.
+.region-sidebar-first .block-views-exposed-filter-blocksearch-sitewide-search {
+  @include duk-gutter-vertical($duk-base-spacing-unit);
+
+  .search-button {
+    display: none;
+  }
+
+  .form--inline .form-item {
+    display: block;
+    margin-top: 0;
+  }
+}
+
+.view-id-search.view-display-id-sitewide_search {
+  @include duk-gutter-vertical($duk-base-spacing-unit);
+}
+
+// Global Search
+//
+// Classes applied to the block-views-exposed-filter-blocksearch-sitewide-search
+// via the district_search module.
+.global-search {
+  position: static;
+  display: flex;
+
+  form {
+    padding: 0 $duk-half-spacing-unit;
+
+    .form-text {
+      border: 0 !important;
+    }
+
+    .form-actions,
+    .form--inline .form-item {
+      margin: 0;
+      display: none !important;
+
+      &.form-type-search-api-autocomplete {
+        display: block !important;
+      }
+    }
+  }
+
+  &.views-exposed-form {
+    margin-bottom: 0;
+  }
+
+  &__toggle {
+    width: $duk-base-spacing-unit * 4;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  &__toggle-icon {
+    @extend %duk-icon;
+    @extend %duk-icon-search;
+    font-size: 1.5em;
+  }
+
+  & &__form {
+    @include duk-position-absolute(top 100% right 9999px);
+    visibility: hidden;
+    z-index: 1;
+    width: 100vw;
+    max-width: 500px;
+    margin: 0;
+    background-color: duk-get-palette-color('white');
+    border: duk-border();
+    border-radius: 0 0 4px 4px;
+
+    &:before,
+    &:after {
+      @include duk-triangle("up", 9px, white, top -18px right 24px);
+      content: '';
+    }
+
+    &:before {
+      @include duk-triangle("up", 9px, map-get($duk-border-colors, 'default'), top -19px right 24px);
+    }
+
+    @include duk-at-breakpoint('desktop-menu') {
+      top: 150%;
+    }
+  }
+
+  &--active &__form {
+    visibility: visible;
+    right: 0;
+  }
+
+  @include duk-at-breakpoint('desktop-menu') {
+    position: relative;
+
+    & &__form {
+      border-radius: 4px;
+      transition: transform 200ms cubic-bezier(.47, 1.64, .41, .8);
+      transform: scale(.9);
+      transform-origin: top right;
+    }
+
+    &--active &__form {
+      transform: scale(1);
+    }
+
+    &__toggle-icon {
+      font-size: 1em;
+    }
+  }
+}
+
+// Search API Autocomplete module.
+.search-api-autocomplete-search.ui-widget-content {
+  border: none;
+  border-radius: 3px;
+  padding: 0;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, .5));
+  transform: translateY(500px);
+
+  .search-api-autocomplete-suggestion {
+    padding: $duk-half-spacing-unit $duk-base-spacing-unit;
+  }
+
+  .ui-menu-item-wrapper.ui-state-active .search-api-autocomplete-suggestion {
+    background-color: duk-get-palette-color('primary');
+  }
+
+  &:before {
+    @include duk-position-absolute(top -6px left $duk-base-spacing-unit);
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: duk-get-palette-color('white');
+    transform: rotate(45deg);
+  }
+}

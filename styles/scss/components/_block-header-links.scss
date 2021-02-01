@@ -1,0 +1,21 @@
+
+.block-header-links {
+  @include duk-gutter-vertical($duk-one-n-half-spacing-unit, 'margin');
+  padding-top: $duk-quarter-spacing-unit;
+
+  .button {
+    margin-bottom: $duk-half-spacing-unit;
+  }
+
+  @include duk-at-breakpoint('laptop') {
+    display: flex;
+
+    .view-content {
+      margin-right: auto;
+    }
+  }
+}
+
+.view-footer .button {
+  white-space: nowrap;
+}

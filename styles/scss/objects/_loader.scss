@@ -1,0 +1,33 @@
+
+// Ajax progress throbber
+//
+// Default ajax progress throbber.
+//
+// Markup:
+// <div class="ajax-progress-throbber">
+//  <span class="throbber"></span>
+// </div>
+//
+// Style guide: Objects.ajax-progress-throbber
+.ajax-progress-throbber {
+  .throbber {
+    @extend %duk-loader--grow;
+    zoom: 0.65;
+    background-image: none;
+  }
+}
+
+.ajax-progress.ajax-progress-fullscreen {
+  @include duk-position-fixed(bottom 0 right 0 left 0);
+  @include duk-progress-bar(5px, false, duk-get-palette-color('primary'), $bar-selector: '&:before');
+  background-image: none;
+  top: auto;
+  width: auto;
+  opacity: 1;
+
+  &:before {
+    @include duk-position-absolute(left 0 bottom 0);
+    content: '';
+    animation: duk-line-loader 4s infinite linear;
+  }
+}

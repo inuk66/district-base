@@ -1,0 +1,76 @@
+
+// Webform element types.
+.webform-submission-form {
+
+  // Radios/Checkboxes.
+  .form-type-radio,
+  .form-type-checkbox {
+    > label {
+      display: inline-block;
+      cursor: pointer;
+      margin-right: $duk-half-spacing-unit;
+    }
+
+    .description {
+      margin-left: $duk-base-spacing-unit;
+    }
+  }
+
+  // Multiple table (more than one element allowed).
+  .form-type-webform-multiple {
+    .tabledrag-toggle-weight-wrapper,
+    .webform-multiple-add,
+    thead {
+      display: none;
+    }
+
+    .form-item label {
+      display: block;
+      font-weight: normal;
+    }
+
+    // This disables the ability to re-order!
+    .webform-multiple-table--handle {
+      display: none;
+    }
+
+    .webform-multiple-table--operations {
+      padding-left: $duk-double-spacing-unit;
+    }
+
+    tbody tr td {
+      padding-bottom: $duk-base-spacing-unit;
+      padding-left: 0;
+      border-top-width: 2px;
+    }
+
+    tbody tr:first-child td {
+      border: 0;
+    }
+  }
+
+  // Contact.
+  .webform-type-webform-contact {
+    .fieldset-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+
+      .form-item {
+        margin-top: 0;
+        width: 49%;
+        margin-right: 1%;
+
+        &[class$="-name"],
+        &[class$="-address"],
+        &[class$="-address-2"] {
+              width: 100%;
+        }
+        &[class$="-postal-code"],
+        &[class$="-state-province"] {
+          width: 24%;
+        }
+      }
+    }
+  }
+
+}

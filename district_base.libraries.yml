@@ -1,0 +1,16 @@
+# Theme global library.
+global:
+  js:
+    js/theme.js: {}
+  css:
+    theme:
+      styles/css/main.css: {}
+      styles/css/print.css: { media: print }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - core/normalize
+    - core/modernizer
+    - core/drupal.dialog.ajax

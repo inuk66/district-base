@@ -1,0 +1,44 @@
+// Instagram integration block.
+.instagram-remote-content {
+  @include duk-clearfix;
+  @include duk-gutter-horizontal(-1%, margin);
+
+  // Display as a 2 col grid.
+  > * {
+    float: left;
+    width: 48%;
+    @include duk-gutter-horizontal(1%, margin);
+  }
+
+  // Display fist item as large, all the rest small.
+  @include duk-at-breakpoint('laptop') {
+    > * {
+      width: 23%;
+
+      &:first-child {
+        width: 48%;
+      }
+    }
+  }
+
+  // Individual post.
+  &-post {
+    position: relative;
+    margin-bottom: 2%;
+    overflow: hidden;
+
+    &__image {
+      @include duk-border-radius('default');
+      background-size: cover;   // Image is added as a background image in template.
+      padding-bottom: 100%;     // Maintain a 1:1 (square) aspect ratio.
+      display: block;
+    }
+
+    &__tag {
+      @include duk-position-absolute(bottom $duk-base-spacing-unit left $duk-base-spacing-unit);
+      @include duk-font-color('white');
+      @include duk-font-weight('bold');
+      text-shadow: 1px 1px 5px rgba(black, 0.5);
+    }
+  }
+}

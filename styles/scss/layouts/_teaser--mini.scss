@@ -1,0 +1,53 @@
+
+// Teaser mini
+//
+// Smallest of teasers, displays horizontal, assumes an image.
+//
+// Style guide: Layouts.teaser-mini
+//
+// Markup:
+//  <div class="teaser-mini">
+//    <div class="teaser__row">
+//      <div class="teaser__image">
+//        <img src="http://placekitten.com/100/100" />
+//      </div>
+//      <div class="teaser__content">
+//        <strong>This is the title</strong>
+//      </div>
+//    </div>
+//  </div>
+.teaser--mini {
+  @include duk-gutter-vertical($duk-base-spacing-unit);
+  position: relative;
+  border-radius: 0 4px 4px 0;
+
+  &:hover {
+    @extend %palette__bg--primary;
+  }
+
+  .teaser {
+
+    &__row {
+      display: flex;
+    }
+
+    &__image {
+      @include duk-bg-color('op-dark-tint-1');
+      height: 80px;
+      width: 100px;
+
+      img {
+        display: none;
+      }
+
+      a {
+        @include duk-position-absolute(top 0 left 0 right 0 bottom 0);
+      }
+    }
+
+    &__content {
+      padding: 0.9rem $duk-base-spacing-unit;
+      width: 80%;
+    }
+  }
+}

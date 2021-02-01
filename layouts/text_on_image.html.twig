@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Template for a text-on-image.
+ */
+#}
+{%
+  set classes = [
+  'text-on-image',
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    <div class="text-on-image__image js-img-to-bg">
+      {{ content.image }}
+    </div>
+
+    <div class="text-on-image__content">
+      <div class="text-on-image__content--inner">
+        {{ content.main }}
+      </div>
+    </div>
+
+  </div>
+{% endif %}
+

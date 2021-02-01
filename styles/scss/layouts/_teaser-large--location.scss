@@ -1,0 +1,75 @@
+// Teaser Large | Location
+//
+// Large teaser for location nodes.
+//
+// Style guide: Layouts.teaser-large--location
+//
+// Markup:
+//<div class="node node__location node--type-location node--view-mode-teaser-large teaser-large teaser-large--location">
+//  <div class="teaser-large__top">
+//    <div class="teaser-large__image js-img-to-bg" style="background-image: url(https://picsum.photos/400/300);">
+//      <a href="#" hreflang="en"><img src="https://picsum.photos/400/300" width="400" height="300" class="image-style-teaser-default" style="visibility: hidden;">
+//      </a>
+//    </div>
+//    <div class="teaser-large__content">
+//      <div class="teaser-large__title">
+//        <h3>
+//          <a href="#">Lorem ipsum dolor</a>
+//        </h3>
+//      </div>
+//      <div class="teaser-large__meta">
+//        sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna...
+//      </div>
+//    </div>
+//  </div>
+//  <div class="teaser-large__map">
+//    <iframe width="100%" style="height: 300px" id="gmap_canvas" src="https://maps.google.com/maps?q=Melbourne&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+//  </div>
+//</div>
+.teaser-large--location {
+  @include duk-gutter-vertical($duk-double-spacing-unit);
+
+  .teaser-large {
+    &__top {
+      @extend %palette__bg--primary;
+    }
+
+    &__image {
+      height: 100px;
+    }
+
+    &__content {
+      padding: $duk-base-spacing-unit;
+    }
+
+    @include duk-at-breakpoint('tablet') {
+      &__top {
+        display: flex;
+      }
+
+      &__image {
+        min-width: 150px;
+        max-width: 300px;
+        width: 23%;
+        height: auto;
+      }
+
+      &__content {
+        width: 87%;
+        padding: $duk-double-spacing-unit;
+      }
+    }
+
+
+    &__title {
+      @include duk-headings {
+        @include duk-font-size('h4');
+        margin: 0 0 $duk-base-spacing-unit 0;
+
+        &:before {
+          content: "@ ";
+        }
+      }
+    }
+  }
+}

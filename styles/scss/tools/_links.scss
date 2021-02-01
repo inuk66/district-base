@@ -1,0 +1,47 @@
+// Mixins
+//
+// Style guide: links.mixins
+
+// link-heading-hover()
+//
+// Applies a hover effect to header links.
+//
+// Style guide: links.mixins.link-heading-hover
+@mixin link-heading-hover {
+  @media (hover: hover) {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      height: 2px;
+      background-color: currentColor;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: transform 150ms ease;
+      transform: scaleX(0);
+      transform-origin: left;
+      border-radius: 1px;
+    }
+
+    &:before {
+      width: 6px;
+      transition: transform 150ms ease;
+    }
+
+    &:after {
+      width: 50px;
+    }
+
+    &:hover {
+      &:after {
+        transform: scaleX(1);
+      }
+
+      &:before {
+        transform: scaleX(1) translateX(54px);
+      }
+    }
+  }
+}

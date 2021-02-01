@@ -1,0 +1,25 @@
+
+* {
+  box-sizing: border-box;
+}
+
+// Prevent chance of horizontal sidebar.
+// We may want to remove this in the future.
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+// Prevent horizontal movement as viewport grows.
+html {
+  overflow-y: scroll;
+  // Resolves fonts appearing slightly differently in firefox.
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+// Default focus should use palette rather than black.
+*:focus {
+  outline: duk-get-palette-color('secondary') auto 1px;
+}

@@ -1,0 +1,38 @@
+// Main stylesheet
+// -------------------------------------------------------
+
+// Dependencies
+// -------------------------------------------------------
+
+// breakpoint-sass
+@import "~breakpoint-sass/stylesheets/breakpoint";
+
+// Dependencies
+// -------------------------------------------------------
+
+// Import duk settings/tools in case you want to use any values in `_duk-overrides`.
+@import "~@doghouse/uikit/scss/settings";
+@import "~@doghouse/uikit/scss/duk-tools";
+
+// Include overrides and settings.
+$duk-icon-font-path: "../../icons";
+@import "settings/**/*";
+
+// Set this to false if you do not want styles included (ie. just use mixins and functions).
+$duk-include-styles: true;
+
+// Import duk and base styles.
+@import "~@doghouse/uikit/scss/duk";
+
+// Styleguide.
+@import "style-guide-only/styleguide";
+
+// All other custom SCSS included via globs.
+// -------------------------------------------------------
+
+@import "tools/**/*";
+@import "objects/**/*";
+@import "base/**/*";
+@import "layouts/**/*";
+@import "components/**/*";
+@import "trumps/**/*";

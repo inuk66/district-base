@@ -1,0 +1,19 @@
+
+.district-iframe {
+  @extend %text-body;
+
+  .iframe_title {
+    margin-bottom: $duk-base-spacing-unit;
+  }
+
+  &__aspect-ratio {
+    position: relative;
+
+    iframe {
+      @include duk-position-absolute(top 0 left 0 bottom 0 right 0);
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+

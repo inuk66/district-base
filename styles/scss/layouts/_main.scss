@@ -1,0 +1,22 @@
+// Main
+// -------------------------------------------------------
+
+// Main
+//
+// Defines the main layout.
+//
+// Style guide: Layouts.main
+//
+// Markup:
+//  <div id="page__main"><div class="container">
+//    Bacon ipsum dolor amet t-bone bacon alcatra pig. Meatball ball tip beef bacon, tongue doner pork pork chop ham
+//    pastrami beef ribs jowl short loin ground round. Sausage strip steak turkey flank doner ham hock ribeye venison
+//    pork belly tri-tip fatback. Salami alcatra meatball swine. Tri-tip sausage frankfurter ham, rump cow burgdoggen
+//    porchetta leberkas ham hock capicola beef turducken tail swine. Rump drumstick swine andouille shankle ribeye.
+//  </div></div>
+.page__main {
+  .container {
+    @extend %container--large;
+  }
+}
+

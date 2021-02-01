@@ -1,0 +1,57 @@
+
+%link--cta {
+  background-color: link-cta-setting('bg-color');
+  color: link-cta-setting('font-color');
+  border-radius: link-cta-setting('radius');
+  border: 0;
+  padding: $duk-base-spacing-unit;
+  position: relative;
+  display: block;
+  text-align: left;
+
+  @include duk-at-breakpoint('desktop') {
+    @include duk-gutter-vertical($duk-base-spacing-unit);
+    padding: $duk-one-n-half-spacing-unit;
+  }
+
+  &--hover,
+  &:hover {
+    background-color: link-cta-setting('bg-color--hover');
+    color: link-cta-setting('font-color--hover');
+  }
+
+  &__title {
+    position: relative;
+    padding-right: (link-cta-setting('button-size') + 10);
+    font-size: 1.125rem;
+    margin-bottom: $duk-base-spacing-unit;
+  }
+
+  &__icon {
+    @include duk-position-absolute(top 0 right 0);
+    background-color: link-cta-setting('icon-bg-color');
+    color: link-cta-setting('icon-color');
+    display: block;
+    width: link-cta-setting('button-size');
+    height: link-cta-setting('button-size');
+    border-radius: link-cta-setting('icon-radius');
+    text-align: center;
+    line-height: (link-cta-setting('button-size') + 3);
+
+    i {
+      @include duk-icon(#{link-cta-setting('icon-name')});
+      font-size: link-cta-setting('icon-size');
+      line-height: (link-cta-setting('button-size') + 3);
+      display: block;
+    }
+  }
+
+  &__icon--hover {
+    background-color: link-cta-setting('icon-bg-color--hover');
+    color: link-cta-setting('icon-color--hover');
+
+    i {
+      color: link-cta-setting('bg-color--hover');
+    }
+  }
+}

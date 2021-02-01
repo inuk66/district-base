@@ -1,0 +1,131 @@
+// Newsletter Subscription Footer
+//
+// Defines styles for the newsletter subscription form in the footer.
+//
+// Style guide: Components.newsletter-subscription-footer
+//
+// Markup:
+//<div class="page__footer" style="padding: 2rem;">
+//  <div class="newsletter-subscription-footer block block-webform block-webform-block">
+//    <form class="webform-submission-form" action="/" method="post">
+//      <div class="webform-elements js-form-wrapper form-wrapper">
+//        <div class="js-form-item form-item js-form-type-email form-type-email js-form-item-email form-item-email form-no-label">
+//          <label for="edit-email" class="visually-hidden js-form-required form-required">Email</label>
+//          <input type="email" id="edit-email" name="email" value="" size="60" maxlength="254" placeholder="Enter your email to subscribe to our newsletter" class="form-email required" required="required" aria-required="true">
+//        </div>
+//        <div class="form-actions webform-actions js-form-wrapper form-wrapper" id="edit-actions--2">
+//          <input class="webform-button--submit button button--primary js-form-submit form-submit" type="submit" id="edit-actions-submit" name="op" value="Submit">
+//        </div>
+//      </div>
+//    </form>
+//  </div>
+//</div>
+.newsletter-subscription-footer {
+  width: 100%;
+  margin-left: auto;
+  border-bottom: duk-border('white');
+  margin-bottom: $duk-one-n-half-spacing-unit;
+
+  .messages {
+    background: transparent;
+    border: none;
+    padding: 0;
+    padding: $duk-half-spacing-unit;
+    margin-bottom: 0;
+    color: duk-get-palette-color('white');
+    margin-left: $duk-base-spacing-unit * 4;
+  }
+
+  .webform-submission-form {
+    max-width: none;
+
+    .form-item-email,
+    .form-actions {
+      margin: 0;
+    }
+  }
+
+  .webform-elements {
+    display: flex;
+  }
+
+  .form-item-email {
+    @include duk-icon('envelope');
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      @include duk-font-size('smaller');
+      margin: 0 $duk-one-n-half-spacing-unit;
+    }
+  }
+
+  .webform-submission-form {
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .form-email {
+    @include duk-font-size('larger');
+    background: transparent;
+    border: none;
+    color: duk-get-font-color('lightest-on-primary');
+    padding: $duk-one-n-half-spacing-unit;
+
+    &.error {
+      // Borders make me jump, replace with outline.
+      border: none;
+      outline: 2px solid red;
+      outline-offset: -2px;
+    }
+
+    &::placeholder {
+      color: rgba(duk-get-font-color('lightest-on-primary'), .75);
+    }
+
+    &:focus {
+      outline: none;
+      background: rgba(duk-get-palette-color('white'), 0.1);
+    }
+  }
+
+  .form-actions {
+    @include duk-icon('arrow-thin-right');
+    position: relative;
+
+    // Needed extra specificity to override.
+    &.webform-actions {
+      margin-top: 0;
+    }
+
+    &:before {
+      @include duk-position-absolute(top 50% left 50%);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      color: duk-get-palette-color('secondary');
+    }
+  }
+
+  // Specificity to override button styles.
+  .webform-submission-form .webform-button--submit.button--primary {
+    &,
+    &:active,
+    &:hover {
+      background: transparent !important;
+      border: transparent !important;
+      color: transparent !important;
+    }
+
+    &:focus {
+      outline: none;
+      background: rgba(duk-get-palette-color('white'), 0.1) !important;
+    }
+  }
+
+  .form-submit {
+    height: 100%;
+    width: 70px;
+  }
+}

@@ -1,0 +1,12 @@
+%card,
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .teaser__main {
+    @include duk-headings {
+      @include duk-font-size('h4');
+    }
+  }
+}

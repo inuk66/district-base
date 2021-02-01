@@ -1,0 +1,11 @@
+$mobile-nav: () !default;
+$mobile-nav: map-merge((
+  'overlay-color':         rgba(0, 0, 0 ,.5),
+  'max-width':             400px,
+  'link-font-size':        .9375rem,
+  'link-color':            duk-get-font-color('white'),
+  'link-parent-font-size': 1.125rem,
+  'back-link-font-size':   .75rem,
+  'link-icon-size':        .75rem,
+  'link-border':           1px solid rgba(duk-get-font-color('white'), .1),
+), $mobile-nav);

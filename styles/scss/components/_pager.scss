@@ -1,0 +1,123 @@
+// Pagination
+//
+// Defines the pager style.
+//
+// Style guide: Components.pager
+//
+// Markup:
+// <nav class="pager">
+//   <ul class="pager__items js-pager__items">
+//     <li class="pager__item pager__item--first">
+//       <a href="#" title="Go to first page">
+//         <span aria-hidden="true">« First</span>
+//       </a>
+//     </li>
+//     <li class="pager__item pager__item--previous">
+//       <a href="#" title="Go to previous page" rel="prev">
+//         <span aria-hidden="true">‹‹</span>
+//       </a>
+//     </li>
+//     <li class="pager__item">
+//       <a href="#" title="Go to page 1">1</a>
+//     </li>
+//     <li class="pager__item">
+//       <a href="#" title="Go to page 2">2</a>
+//     </li>
+//     <li class="pager__item is-active">
+//       <a href="#" title="Current page">3</a>
+//     </li>
+//     <li class="pager__item">
+//       <a href="#" title="Go to page 4">4</a>
+//     </li>
+//     <li class="pager__item">
+//       <a href="#" title="Go to page 5">5</a>
+//     </li>
+//     <li class="pager__item pager__item--next">
+//       <a href="#" title="Go to next page" rel="next">
+//         <span aria-hidden="true">››</span>
+//       </a>
+//     </li>
+//     <li class="pager__item pager__item--last">
+//       <a href="#" title="Go to last page">
+//         <span aria-hidden="true">Last »</span>
+//       </a>
+//     </li>
+//   </ul>
+// </nav>
+.pager {
+  font-size: 1.125rem;
+
+  &__items {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  &__item {
+    @include duk-font-weight('medium');
+    display: inline-block;
+    vertical-align: middle;
+
+    &.is-active {
+      position: relative;
+
+      &:before {
+        content: '';
+        width: 2em;
+        height: 2em;
+        background: duk-get-palette-color('secondary');
+        display: block;
+        border-radius: 50%;
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &--first,
+    &--last,
+    &--next,
+    &--previous {
+      [aria-hidden="true"] {
+        display: none;
+      }
+
+      a {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        display: block;
+        border-right: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
+        font-size: .6em;
+      }
+    }
+
+    &--first,
+    &--last {
+      a:before {
+        content: '';
+        display: block;
+        width: 1em;
+        height: 1em;
+        border: inherit;
+        transform: translate(-.7em, -.7em);
+      }
+    }
+
+    &--first,
+    &--previous {
+      a {
+        transform: rotate(135deg);
+      }
+    }
+
+    &--last,
+    &--next {
+      a {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

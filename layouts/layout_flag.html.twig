@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Template for a layout-flag.
+ */
+#}
+{%
+  set classes = [
+  'layout-flag',
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    <div class="layout-flag__image js-img-to-bg">
+      {{ content.image }}
+    </div>
+
+    <div class="layout-flag__content">
+      <div class="layout-flag__content--inner">
+        {{ content.main }}
+      </div>
+    </div>
+
+  </div>
+{% endif %}
+

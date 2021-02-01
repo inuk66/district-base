@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Template for a teaser large location layout.
+ */
+#}
+{%
+  set classes = [
+  'teaser-large',
+  'teaser-large--location',
+]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    <div class="teaser-large__top">
+      {% if content.image %}
+        <div class="teaser-large__image js-img-to-bg">
+          {{ content.image }}
+        </div>
+      {% endif %}
+      <div class="teaser-large__content">
+        <div class="teaser-large__title">
+          {{ content.title }}
+        </div>
+        <div class="teaser-large__meta">
+          {{ content.meta }}
+        </div>
+      </div>
+    </div>
+
+    {% if content.map %}
+      <div class="teaser-large__map">
+        {{ content.map }}
+      </div>
+    {% endif %}
+
+  </div>
+{% endif %}
+

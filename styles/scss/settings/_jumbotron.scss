@@ -1,0 +1,23 @@
+// Jumbotron
+//
+// Styleguide Settings.jumbotron
+
+// Large banner
+//
+// Settings used for the jumbotron primarily used on the homepage.
+//
+// ``` scss
+// $jumbotron-content-width--large: calc((100vw * 0.4) - (100vw - #{map-get($duk-base-containers, 'large')})/2);
+// $jumbotron-home--height--small: 500px;
+// $jumbotron-home--height--medium: 400px;
+// $jumbotron-home--height--large: 500px;
+// ```
+//
+// Styleguide Settings.jumbotron.large
+$jumbotron-content-width--medium: 40%;
+$jumbotron-content-width--large: calc((100vw * 0.4) - (100vw - #{map-get($duk-base-containers, 'large')})/2);
+$jumbotron-home--height--small: 500px;
+$jumbotron-home--height--medium: 500px;
+$jumbotron-home--height--large: 800px;
+$jumbotron-home--arrow-size: 2rem;
+$jumbotron-home--min-image-height: 200px;

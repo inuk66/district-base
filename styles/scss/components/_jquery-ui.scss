@@ -1,0 +1,7 @@
+
+.ui-tooltip {
+  @include duk-shadow-style('small');
+  @include duk-border-radius('small');
+  padding: $duk-base-spacing-unit;
+  font-size: 0.9em;
+}

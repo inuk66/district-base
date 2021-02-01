@@ -1,0 +1,215 @@
+
+// Hero Banner
+//
+// Banner hero that displays on the homepage.
+//
+// Style guide: Components.hero-banner
+//
+// .hero-banner--content-right - Content right
+// .hero-banner--full-image - Full Image
+// .hero-banner--content-right.hero-banner--full-image - Content right and full image
+//
+// Markup:
+// <div class="hero-banner {{modifier_class}}">
+//  <div class="hero-banner__image js-img-to-bg" style="background-image: url(https://picsum.photos/1200/500?random=1);">
+//   <img src="https://picsum.photos/1200/500?random=1" width="1200" height="500" class="image-style-hero-banner" style="visibility: hidden;">
+//  </div>
+//  <div class="hero-banner__container container">
+//    <div class="hero-banner__container-content">
+//      <div class="hero-banner__title">
+//      Welcome to District. This is our default website theme.</div>
+//      <a href="/services" class="button button--light">Learn More</a>
+//    </div>
+//  </div>
+//</div>
+.hero-banner {
+  position: relative;
+  padding-bottom: $duk-double-spacing-unit;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    @extend %container--large;
+    flex-basis: 100%;
+    display: flex;
+
+    @include duk-at-breakpoint('no-horizontal-gutter') {
+      width: 100%;
+    }
+  }
+
+  &__container-content {
+    @include duk-gutter-vertical(1rem, padding);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+  }
+
+  &__title {
+    @extend %responsive-heading;
+    margin-top: 0;
+    margin-bottom: $duk-one-n-half-spacing-unit;
+    max-width: 100%; // IE11 has some overflow issues.
+  }
+
+  &__blurb {
+    @extend %responsive-description;
+    margin-bottom: 1em;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    min-height: $hero-banner-home--min-image-height;
+
+    img {
+      display: none;
+    }
+  }
+
+  @include duk-at-breakpoint('tablet') {
+    height: $hero-banner-home--height--medium;
+
+    &__image {
+      @include duk-position-absolute(right 0);
+      height: 100%;
+      width: 60%;
+    }
+
+    &__container-content {
+      width: $hero-banner-content-width--medium;
+      padding-right: $duk-triple-spacing-unit;
+      justify-content: center;
+    }
+
+    &--content-right &__container-content {
+      padding-left: $duk-triple-spacing-unit;
+      padding-right: 0;
+    }
+
+    // Full width image style
+    &--full-image &__image {
+      width: 100%;
+    }
+
+    &--full-image &__container-content {
+      position: relative;
+      background: duk-get-palette-color('secondary');
+      padding: $duk-triple-spacing-unit;
+    }
+
+    // Content aligned right style
+    &--content-right &__container {
+      justify-content: flex-end;
+    }
+
+    &--content-right &__image {
+      @include duk-position-absolute(left 0);
+    }
+  }
+
+  @include duk-at-breakpoint('desktop') {
+    height: $hero-banner-home--height--large;
+
+    &__container-content {
+      width: $hero-banner-content-width--large;
+      padding-bottom: $duk-quad-spacing-unit;
+    }
+
+    &--full-image &__container-content {
+      width: $hero-banner-content-width--medium;
+    }
+  }
+}
+
+// Homepage carousel view and slick generated elements.
+.hero-carousel {
+  overflow: hidden;
+
+  .slick {
+    height: 200px;
+
+    &.slick--initialized {
+      height: auto;
+    }
+  }
+
+  .slick__arrow {
+    @extend %container--large;
+    @include duk-position-absolute(left 0 right 0 bottom $duk-quad-spacing-unit);
+    display: none;
+    width: 100%;
+  }
+
+  .slick-arrow {
+    @extend %duk-icon;
+    background: none;
+    border: duk-border('white', 1px);
+    padding: 0;
+    width: $hero-banner-home--arrow-size;
+    height: $hero-banner-home--arrow-size;
+    position: relative;
+    text-indent: -9999px;
+    color: duk-get-font-color('white');
+
+    &:hover {
+      background-color: duk-get-bg-color('white');
+      color: duk-get-font-color('primary');
+    }
+
+    &:before {
+      @include duk-position-absolute(left 50% top 50%);
+      transform: translate(-50%, -50%);
+      text-indent: 0;
+    }
+  }
+
+  .slick-prev {
+    @extend %duk-icon-caret-left;
+    margin-right: $duk-half-spacing-unit;
+  }
+
+  .slick-next {
+    @extend %duk-icon-caret-right;
+  }
+
+  @include duk-at-breakpoint('tablet') {
+    height: $hero-banner-home--height--medium;
+  }
+
+  @include duk-at-breakpoint('desktop') {
+    height: $hero-banner-home--height--large;
+
+    .slick__arrow {
+      display: flex;
+    }
+  }
+}
+
+// Update position of slick navigation to align with banner content.
+.hero-banner--content-right {
+  @include duk-at-breakpoint('desktop') {
+    .slick__arrow {
+      justify-content: flex-end;
+
+      nav {
+        width: $hero-banner-content-width--large;
+        padding: 0 $duk-triple-spacing-unit;
+      }
+    }
+  }
+}
+
+.hero-banner--full-image {
+  @include duk-at-breakpoint('desktop') {
+    .slick__arrow {
+      nav {
+        width: $hero-banner-content-width--medium;
+        padding: 0 $duk-triple-spacing-unit;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+
+// Webform containers such as fieldsets or divs.
+.webform-submission-form {
+
+  // Fieldsets.
+  .fieldset-legend {
+    @include duk-font-size('h4');
+    @include duk-font-color('heading');
+  }
+
+}

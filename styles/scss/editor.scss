@@ -1,0 +1,14 @@
+// Editor stylesheet
+//
+// Additional styles for admin ckeditor.
+// -------------------------------------------------------
+
+// Override styling from main.css
+
+*:focus {
+  outline: none !important;
+}
+
+p, h1, h2, h3, h4, h5 {
+  margin: 0 0 0.5rem !important;
+}

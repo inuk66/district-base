@@ -1,0 +1,51 @@
+// Mixins
+//
+// Weight: 10
+//
+// Style guide: Typography.mixins
+
+// responsive-heading
+//
+// Applies a heading style that is responsive.
+//
+// ``` scss
+// .my-heading {
+//  @include responsive-heading();
+// }
+// ```
+//
+// Style guide: Typography.mixins.responsive-heading
+@mixin responsive-heading() {
+  @include duk-font-size('heading-small');
+  @include duk-font-weight('bold');
+  @include duk-gutter-vertical(.5em, margin);
+
+  @if (map-has-key($duk-base-font-sizes, 'heading-medium')) {
+    @include duk-at-breakpoint('tablet') {
+      @include duk-font-size('heading-medium');
+    }
+  }
+
+  @if (map-has-key($duk-base-font-sizes, 'heading-large')) {
+    @include duk-at-breakpoint('desktop') {
+      @include duk-font-size('heading-large');
+    }
+  }
+}
+
+// responsive-description
+//
+// Applies a description style that is responsive.
+//
+// ``` scss
+// .my-description {
+//  @include responsive-description();
+// }
+// ```
+//
+// Style guide: Typography.mixins.responsive-description
+@mixin responsive-description() {
+  @include duk-at-breakpoint('desktop') {
+    @include duk-font-size('larger');
+  }
+}

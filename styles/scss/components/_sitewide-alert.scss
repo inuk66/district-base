@@ -1,0 +1,55 @@
+// Sitewide Alert
+//
+// An alert component from sitewide alert drupal module.
+//
+// Style guide: Components.sitewide-alert
+
+// Variations
+//
+// Different alert levels will display different colors.
+//
+// .alert-primary - Alert default message
+// .alert-error - Alert error message
+// .alert-status - Alert status message
+// .alert-warning - Alert warning message
+//
+// Style guide: Components.sitewide-alert.variations
+//
+// Markup:
+// <div id="sitewide-alert">
+//  <div>
+//    <div class="sitewide-alert alert {{modifier_class}}" role="alert">
+//      <span>
+//        <div class="clearfix text-formatted field field--name-message field--type-text-long field--label-hidden field__item">
+//          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+//        </div>
+//      </span>
+//      <button class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+//    </div>
+//  </div>
+//</div>
+.sitewide-alert {
+  padding: 0;
+  position: relative;
+
+  @each $type, $color in $duk-messages-colors {
+    &.alert-#{$type} {
+      @extend %duk-messages--#{$type};
+    }
+  }
+
+  > span {
+    display: block;
+    @extend %container--large;
+  }
+
+  .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    appearance: none;
+    border: 0;
+    background: none;
+    font-size: 1.5rem;
+  }
+}

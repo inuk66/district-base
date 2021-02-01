@@ -1,0 +1,21 @@
+@mixin ui-autocompole-loader($color: duk-get-palette-color('primary')) {
+  background-image: none;
+
+  &.ui-autocomplete-loading {
+    background: linear-gradient(90deg, transparent 0%, #{$color} 50%, transparent 100%);
+    background-size: 200% 2px;
+    background-repeat-y: no-repeat;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    animation: gradient-loader 750ms linear infinite;
+  }
+}
+
+@keyframes gradient-loader {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    background-position-x: -200%;
+  }
+}
