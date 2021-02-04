@@ -3,7 +3,7 @@ type: theme
 base theme: classy
 description: District CMS
 package: custom
-core: 8.x
+core_version_requirement: '^8.9 || ^9'
 libraries:
   - district_base/global
 ckeditor_stylesheets:
